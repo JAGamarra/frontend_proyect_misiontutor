@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Krub:wght@400;500;700&display=swap');
+:root {
+  --main-font: 'Krub', sans-serif;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: var(--main-font);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
