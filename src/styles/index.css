@@ -1,10 +1,15 @@
+/* ! NO MODIFICAR LOS ESTILOS EXISTENTES ANTES DE COMUNICAR AL GRUPO PARA EVITAR AFECTACIONES */
+
 @import url('https://fonts.googleapis.com/css2?family=Krub:wght@400;500;700&display=swap');
 :root {
+  /* Fuente principal */
   --main-font: 'Krub', sans-serif;
+  /* Configurar paleta de colores debajo */
 }
 
 html {
   box-sizing: border-box;
+  font-size: 62.5%;
 }
 
 *, *:before, *:after {
@@ -14,8 +19,4 @@ html {
 body {
   font-size: 1.6rem;
   font-family: var(--main-font);
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
