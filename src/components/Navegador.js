@@ -16,8 +16,9 @@ function Navegador() {
                 <Navbar.Collapse className="justify-content-end">
                     <Nav.Link href="#">Inicio</Nav.Link>
                     <Nav.Link href="#acercaDe">Acerca de</Nav.Link>
-                    <Nav.Link href="#profesores">Profesores</Nav.Link>
+                    <Nav.Link href="#tutores">Tutores</Nav.Link>
                     <Nav.Link href="#contacto">Contacto</Nav.Link>
+                    <Nav.Link href="#preguntas">Preguntas</Nav.Link>
                 </Navbar.Collapse>
             </Container>
         </Navbar>
