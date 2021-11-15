@@ -10,7 +10,9 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
 import { Button } from 'react-bootstrap'
 import { Form } from 'react-bootstrap';
-import '../styles/tutor.css';
+import '../../styles/tutor.css';
+import Header from '../../components/home/Header';
+import Footer from '../../components/Footer';
 const Tutores = () => {
 
   const mostrarFormulario = () => {
@@ -28,7 +30,9 @@ const Tutores = () => {
   }
   return (
 
-    <div className="tutor">
+    <div>
+      <Header/>
+      <div className="tutor">
       <div id="bienvenida">
         <Figure className="encabezado">
           <Figure.Image
@@ -242,11 +246,11 @@ const Tutores = () => {
                   </Form.Group>
                 </Col>
                 <Col sm={6}>
-                  <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-                    <Form.Label>Atiende personas con edades entre:</Form.Label>
+                  <Form.Group className="edades" controlId="exampleForm.ControlTextarea1">
+                    <Form.Label>Personas con edades:</Form.Label>
                     <Row>
                       <Col xs="auto" className="my-1">
-                        <Form.Check
+                        <Form.Check style={{font:"10px"}}
                           type="checkbox"
                           id="customControlAutosizing"
                           label="5 - 7"
@@ -282,7 +286,10 @@ const Tutores = () => {
           </Card.Body>
           <Card.Footer className="text-muted">Términos y condiciones...</Card.Footer>
         </Card>
+        </div>
+    
       </div>
+        <Footer/>
     </div >
   );
 }

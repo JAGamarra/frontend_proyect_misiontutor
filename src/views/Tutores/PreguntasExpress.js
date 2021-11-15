@@ -7,10 +7,14 @@ import { FloatingLabel } from 'react-bootstrap';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
 import {Card} from 'react-bootstrap'
-import '../styles/tutor.css';
+import '../../styles/tutor.css';
+import Footer from '../../components/Footer';
+import Header from '../../components/home/Header';
 const PreguntasExpress = () => {
     return (
-        <div className="tutor">
+        <div>
+          <Header/>
+          <div className="preguntas">
              <Card className="tarjeta" border="light" >
     <Card.Header> <h1>Cordial Bienvenida</h1></Card.Header>
     <Card.Body>
@@ -124,6 +128,8 @@ const PreguntasExpress = () => {
     <input  type="submit" value="Registrar Pregunta" className="primary-button login-button"></input>
   </Card>
   <br />
+  </div>
+  <Footer/>
         </div>
     )
 }

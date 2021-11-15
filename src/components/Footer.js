@@ -13,7 +13,8 @@ function Footer() {
                     <h5>Julian Gamarra</h5>
                 </Col>
                 <Col>
-                    <h5>Marcela</h5>
+                    <h5>Marcela Pareja</h5>
+                    <p>marcela.pareja@medellin.edu.co</p>
                 </Col>
                 <Col>
                     <h5>Juan Camilo</h5>
