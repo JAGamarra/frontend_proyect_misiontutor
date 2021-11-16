@@ -1,0 +1,133 @@
+:root {
+    --bg-color-form: #e8e8e8;
+    --bg-color-button: #EFB;
+    --bg-color-button-hover: #EFB;
+}
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    border: 1px solid #000;
+    max-width: 50rem;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 4rem;
+    border-radius: 4rem;
+    background-color: var(--bg-color-form);
+}
+
+.form__title {
+    font-size: 2.8rem;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 3.5rem;
+    letter-spacing: 1.6px;
+}
+
+.form__field {
+    display: block;
+    margin-top: 1.8rem;
+}
+
+.form__field--pass {
+    position: relative;
+}
+
+.pass-icon-v {
+    position: absolute;
+    bottom: 13px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.pass-icon-nv {
+    position: absolute;
+    bottom: 13px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.visible {
+    visibility: visible;
+}
+
+.no-visible {
+    visibility: hidden;
+}
+
+.form__label {}
+
+.form__input {
+    height: 4.5rem;
+    width: 100%;
+    border-radius: .5rem;
+    border: 1px solid #000;
+    padding: .8rem 1.2rem;
+}
+
+.form__buttons {
+    margin-top: 4rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.form__button {
+    /* padding: 1rem 1.4rem; */
+    height: 4rem;
+    font-size: 1.4rem;
+    border: 1px solid #000;
+    border-radius: 1.6rem;
+    flex: 0 0 calc(50% - 2rem);
+    font-weight: bold;
+}
+
+@media (max-width: 512px) {
+    .form__buttons {
+        flex-direction: column!important;
+        justify-content: space-evenly;
+        margin: 0 auto;
+        margin-top: 2rem;
+        max-width: 90%;
+        height: 13rem;
+    }
+}
+
+.form__button p {
+    margin: 0;
+    font-style: italic;
+}
+
+.form__button--password {
+    height: auto;
+    border: none;
+    background-color: transparent;
+    text-decoration: underline;
+    padding: 0;
+    color: blue;
+}
+
+.form__button:hover {
+    background-color: var(--bg-color-button);
+}
+
+.form__button--password:hover {
+    background-color: transparent;
+    color: #000;
+}
+
+.form__button--social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20rem;
+    margin: 0 auto;
+    border-radius: .8rem;
+    font-size: 1.6rem;
+}
+
+.form__button--google {
+    background-color: red;
+}
