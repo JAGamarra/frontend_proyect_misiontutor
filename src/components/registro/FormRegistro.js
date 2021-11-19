@@ -1,4 +1,11 @@
 import React, { useState } from 'react';
+// PARA REDIRECCIONAR UNA VEZ SE REGISTRE 
+import { useNavigate } from "react-router-dom";
+// PAQUETE PARA ALERTAS
+import Swal from 'sweetalert2'
+// DEPARTAMENTOS Y CIUDADES DE COLOMBIA
+import Colombia from "./Colombia.json";
+
 // COMPONENTES DE BOOTSTRAP
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
@@ -7,14 +14,27 @@ import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Image from "react-bootstrap/Image";
 
-// DEPARTAMENTOS Y CIUDADES DE COLOMBIA
-import Colombia from "./Colombia.json";
-
-
 // COMPONENTE FORMULARIO REGISTRO
 const FormRegistro = () => {
   const [form, setForm] = useState({});
   const [errors, setErrors] = useState({});
+  const navigate = useNavigate();
+
+  // función para alertas
+  const showAlert = () => {
+    Swal.fire({
+      title:'Registro exitoso',
+      text:'Ya puedes ingresar',
+      icon:"success",
+      showConfirmButton: false,
+      timer:3000,
+      background: '#fff url(https://res.cloudinary.com/dmld1onhq/image/upload/v1637361914/misionTutor/fondo-alert-registro_zbbxnl.png)',
+    }).then( () => {
+        // entonces al pasar 3 segundos se redirige a la página de login
+        navigate('/login')
+    })
+    }
+  
 
   const setField = (field, value) => {
     setForm({
@@ -39,7 +59,8 @@ const FormRegistro = () => {
       setErrors(newErrors);
     } else {
       // Si no hay errores se puede enviar a MongoDB
-      alert("Gracias por su registro!");
+      //alert("Gracias por su registro!");
+      showAlert();
     }
   };
 
@@ -58,7 +79,7 @@ const FormRegistro = () => {
     else if (lastname.length > 20) newErrors.lastname= "apellido muy largo!";
     // email errors
     if (!email || email === "") newErrors.email = "campo necesario!";
-    else if (email.length > 15) newErrors.email = "email muy largo!";
+    else if (email.length >30) newErrors.email = "email muy largo!";
     else if ( !validateEmail(email) ) newErrors.email = "email inválido!" ;
     // rol errors
     if (!rol || rol === "") newErrors.rol = "Elige tu rol por favor!";
