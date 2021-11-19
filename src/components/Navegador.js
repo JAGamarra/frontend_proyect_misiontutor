@@ -1,4 +1,5 @@
 import { Navbar, Container, Nav } from 'react-bootstrap'
+import {Link} from "react-router-dom";
 function Navegador() {
     return (
         <Navbar expand="sm">
@@ -14,9 +15,9 @@ function Navegador() {
                 </Navbar.Brand>
                 <Navbar.Toggle />
                 <Navbar.Collapse className="justify-content-end">
-                    <Nav.Link href="#">Inicio</Nav.Link>
-                    <Nav.Link href="#acercaDe">Acerca de</Nav.Link>
-                    <Nav.Link href="#tutores">Tutores</Nav.Link>
+                    <Nav.Link as={Link} to="/">Inicio</Nav.Link>
+                    <Nav.Link as={Link} to="/perfilEstudiante">Perfil Estudiante</Nav.Link>
+                    <Nav.Link as={Link} to="/login">Login</Nav.Link>
                     <Nav.Link href="#contacto">Contacto</Nav.Link>
                     <Nav.Link href="#preguntas">Preguntas</Nav.Link>
                 </Navbar.Collapse>
