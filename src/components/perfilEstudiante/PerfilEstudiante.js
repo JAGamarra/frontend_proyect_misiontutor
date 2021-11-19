@@ -4,7 +4,7 @@ import FormPerfilEstudiante from "../perfilEstudiante/FormPerfil";
 
 const PerfilEstudiante = () => {
   return (
-    <Container style={{ height: '79vh'}}>
+    <Container >
 
       {/* imagen */}
       <Row>

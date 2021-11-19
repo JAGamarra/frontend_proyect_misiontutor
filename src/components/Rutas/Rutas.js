@@ -4,6 +4,8 @@ import Home from "../home/Home";
 import Login from "../login/Login";
 import Navegador from "../Navegador";
 import PerfilEstudiante from "../perfilEstudiante/PerfilEstudiante";
+import FormRegistro from "../registro/FormRegistro"
+
 function Rutas() {
     return (
         <>
@@ -12,6 +14,7 @@ function Rutas() {
                 <Navegador />
                 <Routes>
                     <Route exact path="/login" element={<Login />} />
+                    <Route exact path="/registro" element={<FormRegistro />} />
                     <Route exact path="/perfilEstudiante" element={<PerfilEstudiante />} />
                     <Route exacr path="/" element={<Home />} />
                 </Routes>

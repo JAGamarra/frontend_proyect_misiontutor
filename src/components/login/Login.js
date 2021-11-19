@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 // import PropTypes from "prop-types";
 
+import {Link} from "react-router-dom";
+
 import "../../styles/Login.css";
 
 const Login = (props) => {
@@ -99,7 +101,7 @@ const Login = (props) => {
           </button>
           <button className="form__button" type="button">
             <p>¿No tienes cuenta?</p>
-            ¡Regístrate!
+            <Link as={Link} to="/registro"> ¡Regístrate!</Link>    
           </button>
         </div>
       </form>
