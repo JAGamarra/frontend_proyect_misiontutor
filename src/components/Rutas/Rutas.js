@@ -8,6 +8,7 @@ import Tutor from "../../views/Tutores/Tutores";
 import {PerfilTutor} from "../../views/Tutores/PerfilTutor";
 import PreguntasExpress from "../../views/PreguntasRapidas/PreguntasExpress"                                                                                                     
 import { RespuestasExpress } from "../../views/PreguntasRapidas/RespuestasExpress";
+import FormRegistro from "../registro/FormRegistro";
 function Rutas() {
     return (
         <>
