@@ -1,6 +1,6 @@
 import { Form,Row,Col,Button} from 'react-bootstrap';
 
-const FormPerfilEstudiante = () => {
+export const FormPerfil= () => {
   return (
     <>
       <Form>
@@ -61,4 +61,4 @@ const FormPerfilEstudiante = () => {
   );
 };
 
-export default FormPerfilEstudiante;
+export default FormPerfil;

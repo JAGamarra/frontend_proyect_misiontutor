@@ -8,7 +8,6 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
 import {Card} from 'react-bootstrap'
 import '../../styles/tutor.css';
-import Footer from '../../components/Footer';
 import Header from '../../components/home/Header';
 const PreguntasExpress = () => {
     return (
@@ -129,7 +128,6 @@ const PreguntasExpress = () => {
   </Card>
   <br />
   </div>
-  <Footer/>
         </div>
     )
 }

@@ -1,8 +1,14 @@
 //Componentes de Bootstrap
 import { Container, Row, Col, Button ,Badge,Image} from "react-bootstrap";
+import { useNavigate } from 'react-router';
 import FormPerfilEstudiante from "../perfilEstudiante/FormPerfil";
 
 const PerfilEstudiante = () => {
+
+  const navigate = useNavigate();
+  const handlePreguntaRapida = ()=> {
+    navigate('/preguntasExpress');
+  }
   return (
     <Container style={{ height: '79vh'}}>
 
@@ -19,6 +25,13 @@ const PerfilEstudiante = () => {
           <div className="d-grid gap-3 mt-5 mb-5">
             <Button variant="primary" size="lg">
               Buscar profesor
+            </Button>
+          </div>
+        </Col>
+        <Col xs={10} md={8} >
+          <div className="d-grid gap-3 mt-5 mb-5">
+            <Button onClick={handlePreguntaRapida} variant="primary" size="lg">
+              Hacer una pregunta de respuesta inmediata...
             </Button>
           </div>
         </Col>

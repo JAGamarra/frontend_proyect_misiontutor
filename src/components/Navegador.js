@@ -17,6 +17,8 @@ function Navegador() {
                 <Navbar.Collapse className="justify-content-end">
                     <Nav.Link as={Link} to="/">Inicio</Nav.Link>
                     <Nav.Link as={Link} to="/perfilEstudiante">Perfil Estudiante</Nav.Link>
+                    <Nav.Link as={Link} to="/tutor">Tutor</Nav.Link>
+                    <Nav.Link as={Link} to="/perfiltutor">Perfil Tutor</Nav.Link>
                     <Nav.Link as={Link} to="/login">Login</Nav.Link>
                     <Nav.Link href="#contacto">Contacto</Nav.Link>
                     <Nav.Link href="#preguntas">Preguntas</Nav.Link>

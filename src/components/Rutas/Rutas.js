@@ -4,6 +4,10 @@ import Home from "../home/Home";
 import Login from "../login/Login";
 import Navegador from "../Navegador";
 import PerfilEstudiante from "../perfilEstudiante/PerfilEstudiante";
+import Tutor from "../../views/Tutores/Tutores";
+import {PerfilTutor} from "../../views/Tutores/PerfilTutor";
+import PreguntasExpress from "../../views/PreguntasRapidas/PreguntasExpress"                                                                                                     
+import { RespuestasExpress } from "../../views/PreguntasRapidas/RespuestasExpress";
 function Rutas() {
     return (
         <>
@@ -13,6 +17,10 @@ function Rutas() {
                 <Routes>
                     <Route exact path="/login" element={<Login />} />
                     <Route exact path="/perfilEstudiante" element={<PerfilEstudiante />} />
+                    <Route exact path="/tutor" element={<Tutor />} />
+                    <Route exact path="/preguntasExpress" element={<PreguntasExpress />} />
+                    <Route exact path="/respuestasExpress" element={<RespuestasExpress />} />
+                    <Route exact path="/perfiltutor" element={<PerfilTutor />} />
                     <Route exacr path="/" element={<Home />} />
                 </Routes>
                 <Footer />

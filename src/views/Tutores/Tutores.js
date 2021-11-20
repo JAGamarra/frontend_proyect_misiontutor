@@ -12,7 +12,6 @@ import { Button } from 'react-bootstrap'
 import { Form } from 'react-bootstrap';
 import '../../styles/tutor.css';
 import Header from '../../components/home/Header';
-import Footer from '../../components/Footer';
 const Tutores = () => {
 
   const mostrarFormulario = () => {
@@ -73,10 +72,11 @@ const Tutores = () => {
       <div id="registroTuttor">
 
         <div className="login">
-          <h1 className="titulo"><b>Continúe con el registro de su información</b></h1>
+          <b className="titulo">Continúe con el registro de su información</b>
           <br />
+          <br></br>
           <Card>
-            <Card.Header as="h5"> <p className="subtitulo"><b>TUTORES</b></p></Card.Header>
+            <Card.Header as="h5"> <p className="titulo"><b>TUTORES</b></p></Card.Header>
             <Card.Body>
               <Row>
                 <Col sm={6}>
@@ -287,9 +287,7 @@ const Tutores = () => {
           <Card.Footer className="text-muted">Términos y condiciones...</Card.Footer>
         </Card>
         </div>
-    
       </div>
-        <Footer/>
     </div >
   );
 }
