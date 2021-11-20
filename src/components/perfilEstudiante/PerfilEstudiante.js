@@ -10,7 +10,7 @@ const PerfilEstudiante = () => {
     navigate('/preguntasExpress');
   }
   return (
-    <Container style={{ height: '79vh'}}>
+    <Container >
 
       {/* imagen */}
       <Row>

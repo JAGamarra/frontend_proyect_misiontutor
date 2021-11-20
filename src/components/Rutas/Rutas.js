@@ -16,11 +16,12 @@ function Rutas() {
                 <Navegador />
                 <Routes>
                     <Route exact path="/login" element={<Login />} />
+                    <Route exact path="/registro" element={<FormRegistro />} />
                     <Route exact path="/perfilEstudiante" element={<PerfilEstudiante />} />
                     <Route exact path="/tutor" element={<Tutor />} />
+                    <Route exact path="/perfiltutor" element={<PerfilTutor />} />
                     <Route exact path="/preguntasExpress" element={<PreguntasExpress />} />
                     <Route exact path="/respuestasExpress" element={<RespuestasExpress />} />
-                    <Route exact path="/perfiltutor" element={<PerfilTutor />} />
                     <Route exacr path="/" element={<Home />} />
                 </Routes>
                 <Footer />
