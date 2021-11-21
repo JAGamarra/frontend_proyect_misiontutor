@@ -9,7 +9,7 @@ export const RespuestasExpress = () => {
             <Header />
             <br></br>
             <div className="RespuestaExpress">
-                <div className="titulo">POSTULA RESPONDER A LOS ESTUDIANTES
+                <div className="titulo">POSTULASE PARA RESPONDER A LOS ESTUDIANTES
                 </div>
                 <Card>
                     <Card.Body>

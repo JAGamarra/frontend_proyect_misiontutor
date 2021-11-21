@@ -19,7 +19,7 @@ export const PerfilTutor = () => {
                 <br></br>
                 <Row>
                     <Col md={6}>
-                        <div class="tutor-image">
+                        <div class="tutor-image1">
                             <img src={persona} alt="tut@r"></img>
                         </div>
                     </Col>
@@ -34,6 +34,50 @@ export const PerfilTutor = () => {
 
                     <br></br>
                     <Row>
+                        <Col>
+                            <Card border="warning" style={{ width: '18rem' }}>
+                                <Card.Header>Experiencia 1</Card.Header>
+                                <Card.Body>
+                                    <Card.Title>Temas trabajados</Card.Title>
+                                    <Card.Text>
+                                        Aprendizajes adquiridos...
+                                    </Card.Text>
+                                </Card.Body>
+                            </Card>
+                        </Col>
+                        <Col>
+                            <Card border="warning" style={{ width: '18rem' }}>
+                                <Card.Header>Experiencia 2</Card.Header>
+                                <Card.Body>
+                                    <Card.Title>Temas trabajados</Card.Title>
+                                    <Card.Text>
+                                        Aprendizajes adquiridos...
+                                    </Card.Text>
+                                </Card.Body>
+                            </Card>
+                        </Col>
+                        <Col>
+                            <Card border="warning" style={{ width: '18rem' }}>
+                                <Card.Header>Experiencia 3</Card.Header>
+                                <Card.Body>
+                                    <Card.Title>Temas trabajados</Card.Title>
+                                    <Card.Text>
+                                        Aprendizajes adquiridos...
+                                    </Card.Text>
+                                </Card.Body>
+                            </Card>
+                        </Col>
+                        <Col>
+                            <Card border="warning" style={{ width: '18rem' }}>
+                                <Card.Header>Experiencia 4</Card.Header>
+                                <Card.Body>
+                                    <Card.Title>Temas trabajados</Card.Title>
+                                    <Card.Text>
+                                        Aprendizajes adquiridos...
+                                    </Card.Text>
+                                </Card.Body>
+                            </Card>
+                        </Col>
                         <Col>
                             <Card border="warning" style={{ width: '18rem' }}>
                                 <Card.Header>Experiencia 1</Card.Header>

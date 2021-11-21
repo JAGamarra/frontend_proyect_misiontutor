@@ -50,7 +50,7 @@ const Tutores = () => {
             <Col sm={12}>< p className="titulo"><b>BIENVENIDA A LOS TUTORES INTERESADOS EN INSCRIBIRSE</b></p></Col>
           </Row>
           <Row>
-            <Col sm={4}><div class="email-image">
+            <Col sm={4}><div class="tutor-image">
               <img src={missiontuutor} alt="Mision Tutor"></img>
             </div></Col>
             <Col sm={4}> <Spinner animation="grow" variant="info" /> <b>Tutores:</b> Son las personas que acompañan el aprendizaje de quienes requieren un conocimiento específico.</Col>
