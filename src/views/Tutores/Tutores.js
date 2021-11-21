@@ -1,5 +1,4 @@
 import React from 'react';
-import { Image } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import { Row } from 'react-bootstrap';
 import Col from 'react-bootstrap/Col';
@@ -13,6 +12,7 @@ import { Form } from 'react-bootstrap';
 import '../../styles/tutor.css';
 import Header from '../../components/home/Header';
 import missiontuutor from '../../assets/missiontuutor.jpg';
+import persona from '../../assets/persona.png';
 const Tutores = () => {
 
   const mostrarFormulario = () => {
@@ -99,6 +99,13 @@ const Tutores = () => {
                 </Col>
               </Row>
               <Card.Title><b>Información Personal</b></Card.Title>
+              <Row>
+                    <Col md={6}>
+                        <div class="tutor-image1">
+                            <img src={persona} alt="tut@r"></img>
+                        </div>
+                    </Col>
+                    </Row>
               <Card.Text>
                 Información de contacto </Card.Text>
               <Row>

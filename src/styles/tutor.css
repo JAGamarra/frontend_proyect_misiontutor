@@ -91,7 +91,7 @@
 .cuerpoPerfilTutor{
   margin:80px;
   padding: 50px;
-
+  background-color: rgb(243, 237, 229);
 }
 .perfiltutor{
   align-items:initial;
@@ -139,12 +139,16 @@
 .tutor-image1 img{
   width: 120px;
 }
-
-@media(max-width: 640px){
+.accionesTutor{
+  margin: 50px;
+  padding: 100px;
+  background-color: rgb(243, 237, 229);
+}
+@media(max-width: 940px){
   .logo{
     display: block;
   }
   .tutor-image img{
-    width: 200px;
+    width: 70%;
 }
 }

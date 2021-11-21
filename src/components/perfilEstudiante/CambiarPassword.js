@@ -90,7 +90,7 @@ const CambiarPassword = () => {
                 </Form.Group>
             </Col>  
         </Row>
-
+        <br></br>
         <Row className="justify-content-md-center">
             <Col xs="12" md="8" lg="5">
             <Form.Group >
@@ -103,7 +103,7 @@ const CambiarPassword = () => {
             </Form.Group>
           </Col>  
         </Row>
-
+        <br></br>
         <Row className="justify-content-md-center">
             <Col xs="12" md="8" lg="5">
           <Form.Group >
@@ -130,7 +130,7 @@ const CambiarPassword = () => {
         </Row> 
        
       </Form>
-   
+   <br></br>
     </Container>
   );
 };
