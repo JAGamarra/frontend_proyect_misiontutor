@@ -1,7 +1,8 @@
 //Componentes de Bootstrap
-import { Container, Row, Col, Button ,Badge,Image} from "react-bootstrap";
+import { Container, Row, Col, Button ,Badge,Image ,Tabs,Tab} from "react-bootstrap";
+
 import { useNavigate } from 'react-router';
-import FormPerfilEstudiante from "../perfilEstudiante/FormPerfil";
+import EdicionPerfil from "../perfilEstudiante/EdicionPerfil";
 
 const PerfilEstudiante = () => {
 
@@ -19,17 +20,17 @@ const PerfilEstudiante = () => {
         </Col>
       </Row>
 
-      {/* botón */}
+      {/* botones */}
       <Row className="d-flex justify-content-center ">
         <Col xs={10} md={8} >
-          <div className="d-grid gap-3 mt-5 mb-5">
+          <div className="d-grid  mt-5 mb-2">
             <Button variant="primary" size="lg">
               Buscar profesor
             </Button>
           </div>
         </Col>
         <Col xs={10} md={8} >
-          <div className="d-grid gap-3 mt-5 mb-5">
+          <div className="d-grid  mt-2 mb-3">
             <Button onClick={handlePreguntaRapida} variant="primary" size="lg">
               Hacer una pregunta de respuesta inmediata...
             </Button>
@@ -37,18 +38,13 @@ const PerfilEstudiante = () => {
         </Col>
       </Row>
 
-      {/* formulario */}
-      <Row className="d-flex justify-content-center">
-        <Col xs={12} className="mb-5">
-          <Badge bg="secondary"><h2>Perfil estudiante</h2></Badge>   
+      {/* edición del perfil */}
+      <Row className="d-flex justify-content-center ">
+        <Col xs={10} md={10}>
+            <EdicionPerfil />
         </Col>
-        <Col xs={12} lg={8} >
-          
-          <FormPerfilEstudiante />
-         
-        </Col>
-      
       </Row>
+    
 
     </Container>
   );
