@@ -20,7 +20,8 @@ function Footer() {
                     <h5>Juan Camilo</h5>
                 </Col>
                 <Col>
-                    <h5>Andres Redriguez</h5>
+                    <h5>Jaime Alberto Rodríguez Arango</h5>
+                    <p>jarangoz.spain@gmail.com</p>
                 </Col>
             </Row>
         </footer>
