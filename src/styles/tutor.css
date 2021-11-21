@@ -41,6 +41,9 @@
   width: 100%;
   background-color: rgb(243, 237, 229);
 }
+.opciones{
+  text-align: left;
+}
 .titulo{
   font-size: 30px;
   margin-bottom: 12px;
@@ -48,8 +51,8 @@
   font-weight: bold;
 }
 .sutitulo{
-  color: var(--very-light-pink);
-  font-size: var(--md);
+  color: black;
+  font-size: large;
   font-weight: 300;
   margin-top:0;
   margin-bottom: 32px;
@@ -58,6 +61,7 @@
 
 .label{
   font-weight:  bold ;
+  font-size: 1em;
   margin-bottom: 4px;
 }
 .input{
@@ -76,7 +80,6 @@
   cursor: pointer;
   font-weight: bold;
   height: 50px;
-  font-size: large;
 } 
 .login-button{
   margin-top: 14px;

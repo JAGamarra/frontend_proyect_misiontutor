@@ -12,6 +12,7 @@ import { Button } from 'react-bootstrap'
 import { Form } from 'react-bootstrap';
 import '../../styles/tutor.css';
 import Header from '../../components/home/Header';
+import missiontuutor from '../../assets/missiontuutor.jpg';
 const Tutores = () => {
 
   const mostrarFormulario = () => {
@@ -38,7 +39,7 @@ const Tutores = () => {
             width={100}
             height={120}
             alt="Tuttor image"
-            src="../../assets/missiontuutor.jpg" fluid
+            src={missiontuutor} fluid
           />
           <Figure.Caption>
             Ingreso de un nuevo tutor
@@ -50,7 +51,7 @@ const Tutores = () => {
           </Row>
           <Row>
             <Col sm={4}><div class="email-image">
-              <img src="../../public/misiontutor.ico" alt="Mision Tutor"></img>
+              <img src={missiontuutor} alt="Mision Tutor"></img>
             </div></Col>
             <Col sm={4}> <Spinner animation="grow" variant="info" /> <b>Tutores:</b> Son las personas que acompañan el aprendizaje de quienes requieren un conocimiento específico.</Col>
             <Col sm={4}> <Spinner animation="grow" variant="warning" /> <b>Mision Tutor:</b> Este es un espacio para registrar los datos personales, entre otros suficientes para darse a conocer a los posibles estudiantes.</Col>
@@ -60,13 +61,8 @@ const Tutores = () => {
             <Col sm>  </Col>
             <Col sm>  <button className="primary-button login-button" onClick={ocultarBienvenida}>Cominezo</button>
             </Col>
-
           </Row>
-          <Row>
-            <Col xs={6} md={4}>
-              <Image src="../../assets/missiontuutor.jpg" thumbnail />
-            </Col>
-          </Row>
+       
         </Container>
       </div>
       <div id="registroTuttor">
@@ -145,7 +141,7 @@ const Tutores = () => {
                 <Col>
                   <InputGroup className="mb-3">
                     <InputGroup.Text id="basic-addon1">Deportes</InputGroup.Text>
-                    <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                    <Form.Group className="opciones" controlId="formBasicCheckbox">
                       <Form.Check type="checkbox" label="Rugby" />
                       <Form.Check type="checkbox" label="Voleibol" />
                       <Form.Check type="checkbox" label="Patinaje" />
@@ -160,7 +156,7 @@ const Tutores = () => {
                 <Col>
                   <InputGroup className="mb-3">
                     <InputGroup.Text id="basic-addon1">Idiomas</InputGroup.Text>
-                    <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                    <Form.Group  className="opciones" controlId="formBasicCheckbox">
                       <Form.Check type="checkbox" label="Inglés" />
                       <Form.Check type="checkbox" label="Francés" />
                       <Form.Check type="checkbox" label="Portugues" />

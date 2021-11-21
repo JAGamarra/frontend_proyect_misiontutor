@@ -4,10 +4,13 @@ import { Row, Col, Button } from 'react-bootstrap';
 import Carousel from 'react-bootstrap/Carousel';
 import '../../styles/tutor.css';
 import { useNavigate } from 'react-router';
+import Form from 'react-bootstrap/Form';
+import persona from '../../assets/persona.png';
+
 export const PerfilTutor = () => {
     const irhasta = useNavigate();
-    const handleRespuestaRapida = ()=> {
-      irhasta('/respuestasExpress');
+    const handleRespuestaRapida = () => {
+        irhasta('/respuestasExpress');
     }
     return (
         <div>
@@ -15,15 +18,15 @@ export const PerfilTutor = () => {
                 <Card.Body><b className="titulo">SOY TUTOR:  nombre....</b></Card.Body>
                 <br></br>
                 <Row>
-                    <Col>
-                <div class="tutor-image">
-                    <img src="../../assets/missiontuutor.jpg" alt="tut@r"></img>
-                </div>
-                </Col>
-                <Col>
-                    
-        <Button  onClick={handleRespuestaRapida} type="submit" className="primary-button login-button">Pregunta Rápida de los estudiantes</Button>
-                </Col>
+                    <Col md={6}>
+                        <div class="tutor-image">
+                            <img src={persona} alt="tut@r"></img>
+                        </div>
+                    </Col>
+                    <Col md={6}>
+
+                        <Button onClick={handleRespuestaRapida} type="submit" className="primary-button login-button">Pregunta Rápida de los estudiantes</Button>
+                    </Col>
                 </Row>
                 <br></br>
                 <div className="perfiltutor">
@@ -56,19 +59,36 @@ export const PerfilTutor = () => {
                     </Row>
                     <br></br>
                     <Row>
-                        <Col cellSpace="4">
+                        <Col md={12}>
                             <b>Conoce un poco más:</b><br></br>
+
                         </Col>
-                        <Col>
+                        <Col md={3}>
                             Deportes que practico:<br></br>
+                            Natación<br></br>
+                            Shaolin<br></br>
                         </Col>
-                        <Col>
+                        <Col md={3}>
                             Idiomas que domino: <br></br>
+                            Inglés<br></br>
+                            Italiano<br></br>
                         </Col>
-                        <Col>
+                        <Col md={3}>
                             Residencia:<br></br>
+                            <Form.Group as={Col} controlId="formGridState">
+                                <Form.Label>Seleccione...</Form.Label>
+                                <Form.Select defaultValue="Choose...">
+                                    <option>Seleccione...</option>
+                                    <option>Calí</option>
+                                    <option>Risaralda</option>
+                                    <option>Buga</option>
+                                    <option>Caldas</option>
+                                    <option>Medellín</option>
+                                    <option>Bogotá</option>
+                                </Form.Select>
+                            </Form.Group>
                         </Col>
-                        <Col>
+                        <Col md={3}>
                             Metodología:<br></br>
                         </Col>
                     </Row>
@@ -95,7 +115,7 @@ export const PerfilTutor = () => {
 
                         </Carousel.Item>
                         <Carousel.Item>
-                            <video style={{ width: "400px", height: "400px", alignItems:"center"}}>
+                            <video style={{ width: "400px", height: "400px", alignItems: "center" }}>
                                 <source src="https://youtu.be/e3O-76TdcEE" type="video/mp4"></source>
                             </video>
 
