@@ -13,12 +13,13 @@ import Row from "react-bootstrap/Row";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Image from "react-bootstrap/Image";
+import FloatingLabel from "react-bootstrap/FloatingLabel"
 
 // COMPONENTE FORMULARIO REGISTRO
 const FormRegistro = () => {
   const [form, setForm] = useState({});
   const [errors, setErrors] = useState({});
-  const navigate = useNavigate();
+  const navigate = useNavigate(); 
 
   // función para alertas
   const showAlert = () => {
@@ -59,6 +60,7 @@ const FormRegistro = () => {
       setErrors(newErrors);
     } else {
       // Si no hay errores se puede enviar a MongoDB
+
       //alert("Gracias por su registro!");
       showAlert();
     }
@@ -131,12 +133,13 @@ const FormRegistro = () => {
 
         <Row xs={2} md={4} className="justify-content-md-center mb-3">
             <Form.Group as={Col}>
-              <Form.Label>Correo electrónico</Form.Label>
+              <Form.Label>Email</Form.Label>
+           
               <Form.Control type="email" placeholder="Ingresa tu email"
                onChange={(e) => setField("email", e.target.value)}
                isInvalid={!!errors.email}
                />
-               <Form.Control.Feedback type='invalid'>{ errors.email }</Form.Control.Feedback>
+               <Form.Control.Feedback type='invalid'>{ errors.email }</Form.Control.Feedback>       
             </Form.Group>
 
       
@@ -202,7 +205,7 @@ const FormRegistro = () => {
                 isInvalid={!!errors.city}
               >
                <option>Escoge tu ciudad</option>
-               {  form.departamento && Colombia.find( departamento => departamento.departamento === form.departamento ).ciudades.map(ciudad => <option>{ciudad}</option>)}
+               {  form.departamento && Colombia.find( departamento => departamento.departamento === form.departamento ).ciudades.map((ciudad,index) => <option key={index}>{ciudad}</option>)}
               </Form.Control>
               <Form.Control.Feedback type="invalid">
                 {errors.city}
