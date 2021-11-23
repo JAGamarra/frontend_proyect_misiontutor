@@ -1,17 +1,14 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
-import { Row, Col, Button } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 import Carousel from 'react-bootstrap/Carousel';
 import '../../styles/tutor.css';
-import { useNavigate } from 'react-router';
 import Form from 'react-bootstrap/Form';
 import persona from '../../assets/persona.png';
 
 export const PerfilTutorEstudiante = () => {
-    const irhasta = useNavigate();
-    const handleRespuestaRapida = () => {
-        irhasta('/respuestasExpress');
-    }
+   
+
     return (
         <div>
             <Card className="cuerpoPerfilTutor">
@@ -22,10 +19,6 @@ export const PerfilTutorEstudiante = () => {
                         <div class="tutor-image1">
                             <img src={persona} alt="tut@r"></img>
                         </div>
-                    </Col>
-                    <Col md={6}>
-
-                        <Button onClick={handleRespuestaRapida} type="submit" className="primary-button login-button">Pregunta Rápida de los estudiantes</Button>
                     </Col>
                 </Row>
                 <br></br>
