@@ -12,6 +12,9 @@ import FormPerfil from '../../components/perfilEstudiante/FormPerfil';
 import CambiarPassword from '../../components/perfilEstudiante/CambiarPassword';
 import CerrarCuenta from '../../components/perfilEstudiante/CerrarCuenta';
 import Header from '../../components/home/Header';
+
+//IMAGENES CARPETA ASSETS
+import persona from '../../assets/persona.png';
 export const PerfilTutor = () => {
     const irhasta = useNavigate();
     const handleRespuestaRapida = () => {
@@ -24,7 +27,12 @@ export const PerfilTutor = () => {
                 <Card.Header>Actividades que puede realizar el Tutor</Card.Header>
                 <Card.Body>
                     <Row>
-                     <Col md={9}>
+                    <Col md={2}>
+                        <div class="tutor-image1">
+                            <img src={persona} alt="tut@r"></img>
+                        </div>
+                    </Col>
+                     <Col md={8}>
                         <blockquote className="blockquote mb-0">
                         <p>
                         <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example" className="mb-3">
@@ -56,7 +64,8 @@ export const PerfilTutor = () => {
                         </footer>
                         </blockquote>
                         </Col>
-                        <Col md={3}>
+                      
+                        <Col md={2}>
 
                         <Button onClick={handleRespuestaRapida} type ="submit" className="primary-button login-button">Pregunta Rápida de los estudiantes</Button>
                         </Col>
