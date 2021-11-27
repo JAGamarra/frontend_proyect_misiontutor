@@ -18,14 +18,13 @@
     margin: "15px";
   }
 .tutor{
-  border-radius: 25px;
-  margin: 20px;
+  border-radius: 30px;
+  margin: 60px;
   padding: 20px;
   align-items: center;
   align-self: start;
   align-content: center;
   color: black;
-  width: 100%;
   background-color: rgb(243, 237, 229);
 }
 .preguntas{
@@ -80,6 +79,7 @@
   cursor: pointer;
   font-weight: bold;
   height: 50px;
+  
 } 
 .login-button{
   margin-top: 14px;
@@ -91,7 +91,8 @@
 .cuerpoPerfilTutor{
   margin:80px;
   padding: 50px;
-
+  background-color: rgb(243, 237, 229);
+  border-radius: 30px;
 }
 .perfiltutor{
   align-items:initial;
@@ -99,6 +100,7 @@
   align-self: flex-start;
   align-tracks:initial;
   text-align: left;
+  border-radius: 30px;
 }
 .tutor-image{
     width: 250px;
@@ -139,12 +141,21 @@
 .tutor-image1 img{
   width: 120px;
 }
-
-@media(max-width: 640px){
+.accionesTutor{
+  border-radius: 30px;
+  margin: 50px;
+  padding: 100px;
+  background-color: rgb(243, 237, 229);
+}
+@media(max-width: 940px){
   .logo{
     display: block;
   }
   .tutor-image img{
-    width: 200px;
+    width: 70%;
 }
+.primary-button{
+  font-size: 7px;
+}
+
 }
