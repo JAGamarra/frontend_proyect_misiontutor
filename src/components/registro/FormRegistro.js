@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 // PAQUETE PARA ALERTAS
 import Swal from 'sweetalert2'
 // DEPARTAMENTOS Y CIUDADES DE COLOMBIA
-import Colombia from "../registro/Colombia.json";
+import Colombia from "./Colombia.json";
 
 // COMPONENTES DE BOOTSTRAP
 import Form from "react-bootstrap/Form";
@@ -16,7 +16,7 @@ import Image from "react-bootstrap/Image";
 import FloatingLabel from "react-bootstrap/FloatingLabel"
 
 // COMPONENTE FORMULARIO REGISTRO
-const FormPerfil = () => {
+const FormRegistro = () => {
   const [form, setForm] = useState({});
   const [errors, setErrors] = useState({});
   const navigate = useNavigate(); 
@@ -24,11 +24,15 @@ const FormPerfil = () => {
   // función para alertas
   const showAlert = () => {
     Swal.fire({
-      title:'Perfil editado con éxito',
+      title:'Registro exitoso',
+      text:'Ya puedes ingresar',
       icon:"success",
       showConfirmButton: false,
-      timer:2500,
+      timer:3000,
       background: '#fff url(https://res.cloudinary.com/dmld1onhq/image/upload/v1637361914/misionTutor/fondo-alert-registro_zbbxnl.png)',
+    }).then( () => {
+        // entonces al pasar 3 segundos se redirige a la página de login
+        navigate('/login')
     })
     }
   
@@ -62,7 +66,11 @@ const FormPerfil = () => {
     }
   };
 
- 
+  function validateEmail(email) {
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+   }
+
   const findFormErrors = () => {
     const { name, lastname , email , rol ,password, repeatPassword ,age , departamento,city} = form;
     const newErrors = {};
@@ -71,8 +79,15 @@ const FormPerfil = () => {
     else if (name.length > 20) newErrors.name = "nombre muy largo!";
     if (!lastname|| lastname === "") newErrors.lastname= "campo necesario!";
     else if (lastname.length > 20) newErrors.lastname= "apellido muy largo!";
+    // email errors
+    if (!email || email === "") newErrors.email = "campo necesario!";
+    else if (email.length >30) newErrors.email = "email muy largo!";
+    else if ( !validateEmail(email) ) newErrors.email = "email inválido!" ;
     // rol errors
     if (!rol || rol === "") newErrors.rol = "Elige tu rol por favor!";
+    //password
+    if(!password || password==='') newErrors.password = "Ingresa una contraseña"
+    if ( password !== repeatPassword) newErrors.repeatPassword = "no coinciden contraseñas" 
     //Age
     // rating errors
     if ( !age || age > 100 || age < 10 ) newErrors.age = 'Edad entre 9 y 99';
@@ -86,13 +101,18 @@ const FormPerfil = () => {
 
   return (
     <Container>
+       <Row>
+        <Col >
+        <Image src="https://res.cloudinary.com/dmld1onhq/image/upload/v1637351573/misionTutor/registro_dr2li8.png" />
+        </Col>
+      </Row>
       <Form style={styles.formS}>
         <Row xs={2} md={4} className="justify-content-md-center  mb-3">
           <Form.Group as={Col}>
             <Form.Label>Nombre</Form.Label>
             <Form.Control
               type="text"
-              placeholder="traer de base de datos"
+              placeholder="Ingresa tu nombre"
               onChange={(e) => setField("name", e.target.value)}
               isInvalid={!!errors.name}
             />
@@ -103,7 +123,7 @@ const FormPerfil = () => {
             <Form.Label>Apellido</Form.Label>
             <Form.Control
               type="apellido"
-              placeholder="traer de base de datos"
+              placeholder="Ingresa tu apellido"
               onChange={(e) => setField("lastname", e.target.value)}
               isInvalid={!!errors.lastname}
             />
@@ -115,11 +135,9 @@ const FormPerfil = () => {
             <Form.Group as={Col}>
               <Form.Label>Email</Form.Label>
            
-              <Form.Control type="email" placeholder="traer de base de datos"
-               /* onChange={(e) => setField("email", e.target.value)} */
+              <Form.Control type="email" placeholder="Ingresa tu email"
+               onChange={(e) => setField("email", e.target.value)}
                isInvalid={!!errors.email}
-               disabled
-               defaultValue = 'correobasedatos@gmail.com'
                />
                <Form.Control.Feedback type='invalid'>{ errors.email }</Form.Control.Feedback>       
             </Form.Group>
@@ -140,6 +158,26 @@ const FormPerfil = () => {
                 {errors.rol}
               </Form.Control.Feedback>
             </Form.Group>
+        </Row>
+
+        <Row xs={2} md={4} className="justify-content-md-center mb-3">
+          <Form.Group as={Col}>
+            <Form.Label>Contraseña</Form.Label>
+            <Form.Control type="password" placeholder="Ingresa tu contraseña" 
+            onChange={(e) => setField("password", e.target.value)}
+            isInvalid={!!errors.password}
+            />
+            <Form.Control.Feedback type='invalid'>{ errors.password}</Form.Control.Feedback>
+          </Form.Group>
+
+          <Form.Group as={Col}>
+            <Form.Label>Repítela</Form.Label>
+            <Form.Control type="password" placeholder="Escribe tu contraseña nuevamente" 
+            onChange={(e) => setField("repeatPassword", e.target.value)}
+            isInvalid={!!errors.repeatPassword}
+            />
+            <Form.Control.Feedback type='invalid'>{ errors.repeatPassword}</Form.Control.Feedback>
+          </Form.Group>
         </Row>
 
         <Row xs={2} md={6} className="justify-content-md-center mb-4">
@@ -178,7 +216,7 @@ const FormPerfil = () => {
             <Form.Label>Edad</Form.Label>
             <Form.Control type="number" 
               type='number' 
-              placeholder="traer de base de datos"
+              placeholder="Ingres tu edad"
               onChange={ e => setField('age', e.target.value) }
               isInvalid={ !!errors.age }
             />
@@ -194,7 +232,7 @@ const FormPerfil = () => {
             size="lg"
             variant="primary"
           >
-            Actualizar
+            Registrarse
           </Button>
         </Row> 
 
@@ -203,7 +241,7 @@ const FormPerfil = () => {
   );
 };
 
-export default FormPerfil;
+export default FormRegistro;
 
 const styles = {
   formS: {

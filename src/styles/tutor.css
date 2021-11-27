@@ -18,14 +18,13 @@
     margin: "15px";
   }
 .tutor{
-  border-radius: 25px;
-  margin: 20px;
+  border-radius: 30px;
+  margin: 60px;
   padding: 20px;
   align-items: center;
   align-self: start;
   align-content: center;
   color: black;
-  width: 100%;
   background-color: rgb(243, 237, 229);
 }
 .preguntas{
@@ -41,14 +40,18 @@
   width: 100%;
   background-color: rgb(243, 237, 229);
 }
+.opciones{
+  text-align: left;
+}
 .titulo{
   font-size: 30px;
   margin-bottom: 12px;
   text-align: center;
+  font-weight: bold;
 }
 .sutitulo{
-  color: var(--very-light-pink);
-  font-size: var(--md);
+  color: black;
+  font-size: large;
   font-weight: 300;
   margin-top:0;
   margin-bottom: 32px;
@@ -57,6 +60,7 @@
 
 .label{
   font-weight:  bold ;
+  font-size: 1em;
   margin-bottom: 4px;
 }
 .input{
@@ -71,16 +75,87 @@
   border-radius: 8px;
   border: none;
   color: white;
-  width: 100%;
+  width: 50%;
   cursor: pointer;
   font-weight: bold;
   height: 50px;
+  
 } 
+.login-button{
+  margin-top: 14px;
+  margin-bottom: 30px;
+}
 .edades{
   text-size-adjust: 10px;
 }
-@media(max-width: 640px){
+.cuerpoPerfilTutor{
+  margin:80px;
+  padding: 50px;
+  background-color: rgb(243, 237, 229);
+  border-radius: 30px;
+}
+.perfiltutor{
+  align-items:initial;
+  align-content: flex-start;
+  align-self: flex-start;
+  align-tracks:initial;
+  text-align: left;
+  border-radius: 30px;
+}
+.tutor-image{
+    width: 250px;
+    height: 120px;
+    border-radius: 40%;
+    background-color: rgba(237, 238, 222, 0.815);
+    display: flex;
+    justify-content: center;
+    align-items:flex-end;
+    image-rendering: pixelated;
+}
+.tutor-image1{
+  width: 150px;
+  height: 180px;
+  border-radius: 40%;
+  background-color: rgba(237, 238, 222, 0.815);
+  display: flex;
+  justify-content: center;
+  align-items:flex-end;
+  image-rendering: pixelated;
+}
+.RespuestaExpress{
+  border-bottom-right-radius: 40px;
+  border-bottom-left-radius: 60px;
+  border-radius: 30px;
+  margin: 80px;
+  padding: 30px;
+  align-items: center;
+  align-self: start;
+  align-content: center;
+  color: black;
+  width: 90%;
+  background-color: rgb(243, 237, 229);
+}
+.tutor-image img{
+    width: 300px;
+}
+.tutor-image1 img{
+  width: 120px;
+}
+.accionesTutor{
+  border-radius: 30px;
+  margin: 50px;
+  padding: 100px;
+  background-color: rgb(243, 237, 229);
+}
+@media(max-width: 940px){
   .logo{
     display: block;
   }
+  .tutor-image img{
+    width: 70%;
+}
+.primary-button{
+  font-size: 7px;
+}
+
 }

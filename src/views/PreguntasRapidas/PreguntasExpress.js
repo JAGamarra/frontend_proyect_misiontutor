@@ -3,12 +3,10 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { Form } from 'react-bootstrap';
-import { FloatingLabel } from 'react-bootstrap';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
 import {Card} from 'react-bootstrap'
 import '../../styles/tutor.css';
-import Footer from '../../components/Footer';
 import Header from '../../components/home/Header';
 const PreguntasExpress = () => {
     return (
@@ -44,9 +42,7 @@ const PreguntasExpress = () => {
                     <br/>
                     <Row className="espacios">
                     <Col md={{ span: 16, offset: 12 }}>
-                        <FloatingLabel controlId="floatingTextarea" label="Digita la Inquietud" className="mb-3">
-                            <Form.Control as="textarea" placeholder="Leave a comment here" />
-                        </FloatingLabel>
+                            <Form.Control as="textarea" placeholder="Digita la Inquietud" />
                     </Col>
                 </Row>
       <br></br></Row> <br></br><br/>
@@ -129,7 +125,6 @@ const PreguntasExpress = () => {
   </Card>
   <br />
   </div>
-  <Footer/>
         </div>
     )
 }
