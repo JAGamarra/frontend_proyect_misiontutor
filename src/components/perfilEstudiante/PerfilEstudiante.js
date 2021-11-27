@@ -1,15 +1,9 @@
 //Componentes de Bootstrap
 import { Container, Row, Col, Button ,Badge,Image ,Tabs,Tab} from "react-bootstrap";
-
-import { useNavigate } from 'react-router';
 import EdicionPerfil from "../perfilEstudiante/EdicionPerfil";
 
 const PerfilEstudiante = () => {
 
-  const navigate = useNavigate();
-  const handlePreguntaRapida = ()=> {
-    navigate('/preguntasExpress');
-  }
   return (
     <Container >
 
@@ -26,13 +20,6 @@ const PerfilEstudiante = () => {
           <div className="d-grid  mt-5 mb-2">
             <Button variant="primary" size="lg">
               Buscar profesor
-            </Button>
-          </div>
-        </Col>
-        <Col xs={10} md={8} >
-          <div className="d-grid  mt-2 mb-3">
-            <Button onClick={handlePreguntaRapida} variant="primary" size="lg">
-              Hacer una pregunta de respuesta inmediata...
             </Button>
           </div>
         </Col>
