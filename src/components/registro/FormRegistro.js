@@ -12,8 +12,8 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
-import Image from "react-bootstrap/Image";
-import FloatingLabel from "react-bootstrap/FloatingLabel"
+
+import Image from 'react-bootstrap/Image'
 
 // COMPONENTE FORMULARIO REGISTRO
 const FormRegistro = () => {
@@ -60,7 +60,7 @@ const FormRegistro = () => {
       setErrors(newErrors);
     } else {
       // Si no hay errores se puede enviar a MongoDB
-
+      console.log(form)
       //alert("Gracias por su registro!");
       showAlert();
     }
@@ -131,7 +131,7 @@ const FormRegistro = () => {
           </Form.Group>
         </Row>
 
-        <Row xs={2} md={4} className="justify-content-md-center mb-3">
+        <Row xs={1} md={6} className="justify-content-md-center mb-3">
             <Form.Group as={Col}>
               <Form.Label>Email</Form.Label>
            
@@ -158,9 +158,34 @@ const FormRegistro = () => {
                 {errors.rol}
               </Form.Control.Feedback>
             </Form.Group>
+
+            { form.rol !== 'estudiante'
+                ?   <Form.Group as={Col}>
+                <Form.Label>Cursos</Form.Label>
+                <Form.Control
+                  as="select"
+                  onChange={(e) => setField("curso", e.target.value)}
+                  isInvalid={!!errors.rol}
+                >
+                  <option value="">Selecciona tu curso:</option>
+                  <option value="matematicas"> Matematicas</option>
+                  <option value="fisica">Física</option>
+                  <option value="ingles">Inglés</option>
+                  <option value="arte">Arte</option>
+                </Form.Control>
+                <Form.Control.Feedback type="invalid">
+                  {errors.rol}
+                </Form.Control.Feedback>
+              </Form.Group>   
+              : <Form.Group as={Col}>  </Form.Group> 
+  }
+           
+            
         </Row>
 
-        <Row xs={2} md={4} className="justify-content-md-center mb-3">
+
+
+        <Row xs={1} md={4} className="justify-content-md-center mb-3">
           <Form.Group as={Col}>
             <Form.Label>Contraseña</Form.Label>
             <Form.Control type="password" placeholder="Ingresa tu contraseña" 
@@ -180,7 +205,7 @@ const FormRegistro = () => {
           </Form.Group>
         </Row>
 
-        <Row xs={2} md={6} className="justify-content-md-center mb-4">
+        <Row xs={1} md={6} className="justify-content-md-center mb-4">
   
           <Form.Group as={Col}>
               <Form.Label>Departamento</Form.Label>
