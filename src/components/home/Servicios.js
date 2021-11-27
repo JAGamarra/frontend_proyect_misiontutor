@@ -28,7 +28,7 @@ function Servicios() {
                             </Col>
                             <Col md={12} lg={6}>
                                 <h3>Se Tutor</h3>
-                                <p style={{fontSize:'1.3rem'}}>¿Eres bueno enseñando? ¿Dominas algún tema de estudio? Si es así, te invitamos a unirte como un tutor, en este lugar te llegaran solicitudes de estudiantes que quieren aprender y necesitan ayuda, solo tendrás que contactarte con el alumno y sitar un encuentro por el medio virtual que le convenga a ambos. </p>
+                                <p style={{fontSize:'1.3rem'}}>¿Eres bueno enseñando? ¿Dominas algún tema de estudio? Si es así, te invitamos a unirte como un tutor, en este lugar te llegaran solicitudes de estudiantes que quieren aprender y necesitan ayuda, solo tendrás que contactarte con el alumno y citar un encuentro por el medio virtual que le convenga a ambos. </p>
                             </Col>
                         </Row>
                     </Col>
