@@ -4,10 +4,16 @@ import React, { useState } from "react";
 import "../../styles/Login.css";
 
 const Login = (props) => {
+  // States
   const [emailInput, setEmailInput] = useState("");
   const [passwordInput, setPasswordInput] = useState("");
+  const [loginData, setLoginData] = useState({
+    email: "",
+    password: "",
+  });
   const [passVisible, setPassVisible] = useState(false);
 
+  // handle Events
   const handleEmailInput = (e) => {
     setEmailInput(e.target.value);
   };
@@ -16,21 +22,11 @@ const Login = (props) => {
     setPasswordInput(e.target.value);
   };
 
-  const handlePasswordVisible = () => {
-    setPassVisible(!passVisible);
-    const noVisiblePass = document.querySelector(".pass-icon-v");
-    const visiblePass = document.querySelector(".pass-icon-nv");
-    if (!passVisible) {
-      visiblePass.classList.add("visible");
-      visiblePass.classList.remove("no-visible");
-      noVisiblePass.classList.add("no-visible");
-      noVisiblePass.classList.remove("visible");
-    } else {
-      visiblePass.classList.add("no-visible");
-      visiblePass.classList.remove("visible");
-      noVisiblePass.classList.add("visible");
-      noVisiblePass.classList.remove("no-visible");
-    }
+  const handleLoginData = ({ target }) => {
+    setLoginData({
+      ...loginData,
+      [target.name]: target.value,
+    });
   };
 
   return (
@@ -45,7 +41,7 @@ const Login = (props) => {
           <input
             type="email"
             value={emailInput}
-            onChange={handleEmailInput}
+            onChange={handleLoginData}
             name="email"
             id="email"
             className="form__input"
@@ -57,40 +53,44 @@ const Login = (props) => {
             Contraseña
           </label>
           {passVisible ? (
-            <input
-              type="text"
-              value={passwordInput}
-              onChange={handlePasswordInput}
-              name="password"
-              id="password"
-              className="form__input"
-            />
+            <>
+              <input
+                type="text"
+                value={passwordInput}
+                onChange={handleLoginData}
+                name="password"
+                id="password"
+                className="form__input"
+              />
+              <span
+                onClick={() => setPassVisible(false)}
+                className="material-icons material-icons-outlined md-18 pass-icon "
+              >
+                visibility
+              </span>
+            </>
           ) : (
-            <input
-              type="password"
-              value={passwordInput}
-              onChange={handlePasswordInput}
-              name="password"
-              id="password"
-              className="form__input"
-            />
+            <>
+              <input
+                type="password"
+                value={passwordInput}
+                onChange={handlePasswordInput}
+                name="password"
+                id="password"
+                className="form__input"
+              />
+              <span
+                onClick={() => setPassVisible(true)}
+                className="material-icons material-icons-outlined md-18 pass-icon"
+              >
+                visibility_off
+              </span>
+            </>
           )}
-          <span
-            onClick={handlePasswordVisible}
-            className="material-icons material-icons-outlined md-18 pass-icon-v visible"
-          >
-            visibility_off
-          </span>
-          <span
-            onClick={handlePasswordVisible}
-            className="material-icons material-icons-outlined md-18 pass-icon-nv no-visible"
-          >
-            visibility
-          </span>
         </div>
 
         <button type="button" className="form__button form__button--password">
-          ¿Olvidaste tu contra? Recúperala aquí
+          ¿Olvidaste tu contra? ¡Recúperala aquí!
         </button>
 
         <div className="form__buttons">

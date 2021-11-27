@@ -36,14 +36,14 @@
     position: relative;
 }
 
-.pass-icon-v {
+/* .pass-icon-v {
     position: absolute;
     bottom: 13px;
     right: 10px;
     cursor: pointer;
-}
+} */
 
-.pass-icon-nv {
+.pass-icon {
     position: absolute;
     bottom: 13px;
     right: 10px;
@@ -86,7 +86,7 @@
 
 @media (max-width: 512px) {
     .form__buttons {
-        flex-direction: column!important;
+        flex-direction: column !important;
         justify-content: space-evenly;
         margin: 0 auto;
         margin-top: 2rem;
