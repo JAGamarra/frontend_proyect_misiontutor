@@ -78,11 +78,11 @@ const FormRegistro = () => {
    }
 
   const findFormErrors = () => {
-    const { name, lastname , email , rol ,password, repeatPassword ,age , departamento,city} = form;
+    const { firstName, lastname , email , rol ,password, repeatPassword ,age , departamento,city,assignature} = form;
     const newErrors = {};
     // name errors
-    if ( !name ||  name === "") newErrors.name = "campo necesario!"; // !name es para evitar problemas con undefined 
-    else if (name.length > 20) newErrors.name = "nombre muy largo!";
+    if ( !firstName ||  firstName === "") newErrors.firstName= "campo necesario!"; // !name es para evitar problemas con undefined 
+    else if (firstName.length > 20) newErrors.firstName = "nombre muy largo!";
     if (!lastname|| lastname === "") newErrors.lastname= "campo necesario!";
     else if (lastname.length > 20) newErrors.lastname= "apellido muy largo!";
     // email errors
@@ -101,7 +101,7 @@ const FormRegistro = () => {
     // departamento
     if (!departamento || departamento === "") newErrors.departamento = "Elige tu departamento!";
     if (!city || city === "") newErrors.city = "Elige tu ciudad!";
- 
+    
     return newErrors; 
   };
 
@@ -113,28 +113,40 @@ const FormRegistro = () => {
         </Col>
       </Row>
       <Form style={styles.formS}>
-        <Row xs={2} md={4} className="justify-content-md-center  mb-3">
+        <Row xs={1} md={6} className="justify-content-md-center  mb-3">
           <Form.Group as={Col}>
             <Form.Label>Nombre</Form.Label>
             <Form.Control
               type="text"
               placeholder="Ingresa tu nombre"
-              onChange={(e) => setField("name", e.target.value)}
-              isInvalid={!!errors.name}
+              onChange={(e) => setField("firstName", e.target.value)}
+              isInvalid={!!errors.firstName}
             />
-            <Form.Control.Feedback type='invalid'>{ errors.name }</Form.Control.Feedback>
+            <Form.Control.Feedback type='invalid'>{ errors.firstName }</Form.Control.Feedback>
           </Form.Group>
 
           <Form.Group as={Col}>
             <Form.Label>Apellido</Form.Label>
             <Form.Control
-              type="apellido"
+              type="text"
               placeholder="Ingresa tu apellido"
               onChange={(e) => setField("lastname", e.target.value)}
               isInvalid={!!errors.lastname}
             />
             <Form.Control.Feedback type='invalid'>{ errors.lastname }</Form.Control.Feedback>
           </Form.Group>
+
+          <Form.Group as={Col}>
+            <Form.Label>Celular</Form.Label>
+            <Form.Control
+              type="tel"
+              placeholder="Ingresa tu celular"
+              onChange={(e) => setField("cellphoneNumber", "+057"+e.target.value)}
+              isInvalid={!!errors.cellphoneNumber}
+            />
+            <Form.Control.Feedback type='invalid'>{ errors.lastname }</Form.Control.Feedback>
+          </Form.Group>
+
         </Row>
 
         <Row xs={1} md={6} className="justify-content-md-center mb-3">
@@ -167,11 +179,11 @@ const FormRegistro = () => {
 
             { form.rol !== 'estudiante'
                 ?   <Form.Group as={Col}>
-                <Form.Label>Cursos</Form.Label>
+                <Form.Label>Asignatura</Form.Label>
                 <Form.Control
                   as="select"
-                  onChange={(e) => setField("curso", e.target.value)}
-                  isInvalid={!!errors.rol}
+                  onChange={(e) => setField("assignature", e.target.value)}
+                  isInvalid={!!errors.assignature}
                 >
                   <option value="">Selecciona tu curso:</option>
                   <option value="matematicas"> Matematicas</option>
@@ -180,7 +192,7 @@ const FormRegistro = () => {
                   <option value="arte">Arte</option>
                 </Form.Control>
                 <Form.Control.Feedback type="invalid">
-                  {errors.rol}
+                  {errors.assignature}
                 </Form.Control.Feedback>
               </Form.Group>   
               : <Form.Group as={Col}>  </Form.Group> 
@@ -202,7 +214,7 @@ const FormRegistro = () => {
           </Form.Group>
 
           <Form.Group as={Col}>
-            <Form.Label>Repítela</Form.Label>
+            <Form.Label>Repite la contraseña</Form.Label>
             <Form.Control type="password" placeholder="Escribe tu contraseña nuevamente" 
             onChange={(e) => setField("repeatPassword", e.target.value)}
             isInvalid={!!errors.repeatPassword}
