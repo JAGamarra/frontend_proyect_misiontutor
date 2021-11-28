@@ -1,5 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router";
+import { apiUser } from "./Api";
 import { apiLogin, apiRegister } from "./Api";
 
 
@@ -57,7 +58,7 @@ const AuthProvider = ({ children }) => {
 
     const handleUser = async()=>{
         const token = localStorage.getItem('token');
-        const resp = await fetch(apiLogin, {
+        const resp = await fetch(apiUser, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
