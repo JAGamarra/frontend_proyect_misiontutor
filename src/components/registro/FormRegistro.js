@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 // PARA REDIRECCIONAR UNA VEZ SE REGISTRE 
 import { useNavigate } from "react-router-dom";
 // PAQUETE PARA ALERTAS
@@ -14,9 +14,13 @@ import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 
 import Image from 'react-bootstrap/Image'
+import AuthContext from '../../context/AuthContext';
 
 // COMPONENTE FORMULARIO REGISTRO
 const FormRegistro = () => {
+
+  const {handleRegister} = useContext(AuthContext);
+
   const [form, setForm] = useState({});
   const [errors, setErrors] = useState({});
   const navigate = useNavigate(); 
@@ -60,7 +64,9 @@ const FormRegistro = () => {
       setErrors(newErrors);
     } else {
       // Si no hay errores se puede enviar a MongoDB
-      console.log(form)
+      console.log(form);
+      //envia la peticion http al backend por medio del context
+      handleRegister(form);
       //alert("Gracias por su registro!");
       showAlert();
     }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 // PARA REDIRECCIONAR UNA VEZ SE REGISTRE 
 import { useNavigate } from "react-router-dom";
 // PAQUETE PARA ALERTAS
@@ -14,12 +14,25 @@ import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Image from "react-bootstrap/Image";
 import FloatingLabel from "react-bootstrap/FloatingLabel"
+import AuthContext from '../../context/AuthContext';
 
 // COMPONENTE FORMULARIO REGISTRO
 const FormPerfil = () => {
+
+  const {handleUser} = useContext(AuthContext);
+
   const [form, setForm] = useState({});
   const [errors, setErrors] = useState({});
   const navigate = useNavigate(); 
+
+  useEffect(async ()=>{
+    const resp = await handleUser();
+    if(resp.status === 200){
+      //dependiendo como se llame el arreglo que con los datos que envie el usuario
+      //se cambia user por ese nombre
+      setForm(resp.user);
+    }
+  },[]);
 
   // función para alertas
   const showAlert = () => {
