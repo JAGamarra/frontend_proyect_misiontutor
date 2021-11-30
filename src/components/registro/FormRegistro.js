@@ -78,7 +78,7 @@ const FormRegistro = () => {
    }
 
   const findFormErrors = () => {
-    const { firstName, lastname , email , rol ,password, repeatPassword ,age , departamento,city,assignature} = form;
+    const { firstName, lastname , email , rol ,password,age , departamento,city,assignature} = form;
     const newErrors = {};
     // name errors
     if ( !firstName ||  firstName === "") newErrors.firstName= "campo necesario!"; // !name es para evitar problemas con undefined 
@@ -93,7 +93,7 @@ const FormRegistro = () => {
     if (!rol || rol === "") newErrors.rol = "Elige tu rol por favor!";
     //password
     if(!password || password==='') newErrors.password = "Ingresa una contraseña"
-    if ( password !== repeatPassword) newErrors.repeatPassword = "no coinciden contraseñas" 
+    //if ( password !== repeatPassword) newErrors.repeatPassword = "no coinciden contraseñas" 
     //Age
     // rating errors
     if ( !age || age > 100 || age < 10 ) newErrors.age = 'Edad entre 9 y 99';
@@ -213,14 +213,6 @@ const FormRegistro = () => {
             <Form.Control.Feedback type='invalid'>{ errors.password}</Form.Control.Feedback>
           </Form.Group>
 
-          <Form.Group as={Col}>
-            <Form.Label>Repite la contraseña</Form.Label>
-            <Form.Control type="password" placeholder="Escribe tu contraseña nuevamente" 
-            onChange={(e) => setField("repeatPassword", e.target.value)}
-            isInvalid={!!errors.repeatPassword}
-            />
-            <Form.Control.Feedback type='invalid'>{ errors.repeatPassword}</Form.Control.Feedback>
-          </Form.Group>
         </Row>
 
         <Row xs={1} md={6} className="justify-content-md-center mb-4">

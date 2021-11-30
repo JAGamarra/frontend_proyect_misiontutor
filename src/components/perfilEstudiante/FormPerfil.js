@@ -25,14 +25,7 @@ const FormPerfil = () => {
   const [errors, setErrors] = useState({});
   const navigate = useNavigate(); 
 
-  useEffect(async ()=>{
-    const resp = await handleUser();
-    if(resp.status === 200){
-      //dependiendo como se llame el arreglo que con los datos que envie el usuario
-      //se cambia user por ese nombre
-      setForm(resp.user);
-    }
-  },[]);
+ 
 
   // función para alertas
   const showAlert = () => {
