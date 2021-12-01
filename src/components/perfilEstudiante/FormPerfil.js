@@ -17,15 +17,13 @@ import FloatingLabel from "react-bootstrap/FloatingLabel"
 import AuthContext from '../../context/AuthContext';
 
 // COMPONENTE FORMULARIO REGISTRO
-const FormPerfil = () => {
-
+const FormPerfil = ({datos}) => {
+  console.log(datos?.age)
   const {handleUser} = useContext(AuthContext);
 
   const [form, setForm] = useState({});
   const [errors, setErrors] = useState({});
   const navigate = useNavigate(); 
-
- 
 
   // función para alertas
   const showAlert = () => {
@@ -98,7 +96,8 @@ const FormPerfil = () => {
             <Form.Label>Nombre</Form.Label>
             <Form.Control
               type="text"
-              placeholder="traer de base de datos"
+              placeholder={datos?.firstName}
+              defaultValue = {datos?.firstName}
               onChange={(e) => setField("name", e.target.value)}
               isInvalid={!!errors.name}
             />
@@ -109,7 +108,8 @@ const FormPerfil = () => {
             <Form.Label>Apellido</Form.Label>
             <Form.Control
               type="apellido"
-              placeholder="traer de base de datos"
+              placeholder={datos?.lastname}
+              defaultValue = {datos?.lastname}
               onChange={(e) => setField("lastname", e.target.value)}
               isInvalid={!!errors.lastname}
             />
@@ -125,7 +125,8 @@ const FormPerfil = () => {
                /* onChange={(e) => setField("email", e.target.value)} */
                isInvalid={!!errors.email}
                disabled
-               defaultValue = 'correobasedatos@gmail.com'
+               placeholder={datos?.email}
+               defaultValue = {datos?.email}
                />
                <Form.Control.Feedback type='invalid'>{ errors.email }</Form.Control.Feedback>       
             </Form.Group>
@@ -137,8 +138,9 @@ const FormPerfil = () => {
                 as="select"
                 onChange={(e) => setField("rol", e.target.value)}
                 isInvalid={!!errors.rol}
+                defaultValue = {datos?.rol}
               >
-                <option value="">Selecciona tu rol:</option>
+                <option value="">{datos?.rol}</option>
                 <option value="profesor">Profesor</option>
                 <option value="estudiante">Estudiante</option>
               </Form.Control>
@@ -156,8 +158,9 @@ const FormPerfil = () => {
                 as="select"
                 onChange={(e) => setField("departamento", e.target.value)}
                 isInvalid={!!errors.departamento}
+                defaultValue = {datos?.departamento}
               >
-               <option>Escoge tu departamento</option>
+               <option>{datos?.departamento}</option>
                { Colombia.map(departamento => <option key={departamento.id}> {departamento.departamento}</option> ) }
               </Form.Control>
               <Form.Control.Feedback type="invalid">
@@ -171,8 +174,9 @@ const FormPerfil = () => {
                 as="select"
                 onChange={(e) => setField("city", e.target.value)}
                 isInvalid={!!errors.city}
+               defaultValue = {datos?.city}
               >
-               <option>Escoge tu ciudad</option>
+               <option>{datos?.city}</option>
                {  form.departamento && Colombia.find( departamento => departamento.departamento === form.departamento ).ciudades.map((ciudad,index) => <option key={index}>{ciudad}</option>)}
               </Form.Control>
               <Form.Control.Feedback type="invalid">
@@ -184,7 +188,8 @@ const FormPerfil = () => {
             <Form.Label>Edad</Form.Label>
             <Form.Control type="number" 
               type='number' 
-              placeholder="traer de base de datos"
+              placeholder={datos?.age}
+              defaultValue = {datos?.age}
               onChange={ e => setField('age', e.target.value) }
               isInvalid={ !!errors.age }
             />

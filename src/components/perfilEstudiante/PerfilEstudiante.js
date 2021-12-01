@@ -2,7 +2,12 @@
 import { Container, Row, Col, Button ,Badge,Image ,Tabs,Tab} from "react-bootstrap";
 import EdicionPerfil from "../perfilEstudiante/EdicionPerfil";
 
+import AuthContext from '../../context/AuthContext';
+
+/* import React, { useState, useContext, useEffect } from 'react'; */
+
 const PerfilEstudiante = () => {
+   
 
   return (
     <Container >
@@ -28,7 +33,7 @@ const PerfilEstudiante = () => {
       {/* edición del perfil */}
       <Row className="d-flex justify-content-center ">
         <Col xs={10} md={10}>
-            <EdicionPerfil />
+            <EdicionPerfil/>
         </Col>
       </Row>
     

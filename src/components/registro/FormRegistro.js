@@ -149,7 +149,7 @@ const FormRegistro = () => {
 
         </Row>
 
-        <Row xs={1} md={6} className="justify-content-md-center mb-3">
+        <Row xs={1} md={4} className="justify-content-md-center mb-3">
             <Form.Group as={Col}>
               <Form.Label>Email</Form.Label>
            
@@ -160,8 +160,22 @@ const FormRegistro = () => {
                <Form.Control.Feedback type='invalid'>{ errors.email }</Form.Control.Feedback>       
             </Form.Group>
 
-      
             <Form.Group as={Col}>
+              <Form.Label>Contraseña</Form.Label>
+              <Form.Control type="password" placeholder="Ingresa tu contraseña" 
+              onChange={(e) => setField("password", e.target.value)}
+              isInvalid={!!errors.password}
+              />
+              <Form.Control.Feedback type='invalid'>{ errors.password}</Form.Control.Feedback>
+          </Form.Group>
+   
+        </Row>
+
+
+
+        <Row xs={1} md={4} className="justify-content-md-center mb-3">
+
+        <Form.Group as={Col}>
               <Form.Label>Elige tu rol</Form.Label>
               <Form.Control
                 as="select"
@@ -196,22 +210,7 @@ const FormRegistro = () => {
                 </Form.Control.Feedback>
               </Form.Group>   
               : <Form.Group as={Col}>  </Form.Group> 
-  }
-           
-            
-        </Row>
-
-
-
-        <Row xs={1} md={4} className="justify-content-md-center mb-3">
-          <Form.Group as={Col}>
-            <Form.Label>Contraseña</Form.Label>
-            <Form.Control type="password" placeholder="Ingresa tu contraseña" 
-            onChange={(e) => setField("password", e.target.value)}
-            isInvalid={!!errors.password}
-            />
-            <Form.Control.Feedback type='invalid'>{ errors.password}</Form.Control.Feedback>
-          </Form.Group>
+              }
 
         </Row>
 

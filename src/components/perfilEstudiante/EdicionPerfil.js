@@ -19,17 +19,16 @@ const  EdicionPerfil = () => {
         if(resp.status === 200){
           //json contiene el arreglo con toda la informacion
           let json = await resp.json();
-          setDatos(json);
+          setDatos(json[0]);
         }
-      },[]);
-
+      },[]); 
+     
     return ( 
         <div Container>
-            {console.log("linea 28",datos)}
             <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example" className="mb-3">
                 <Tab eventKey="home" title="Perfil">
 
-                    <FormPerfil />
+                    <FormPerfil datos={datos}/>
 
                 </Tab>
                 <Tab eventKey="profile" title="Cambiar contraseña">
