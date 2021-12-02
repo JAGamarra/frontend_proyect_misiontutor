@@ -141,7 +141,7 @@ const FormRegistro = () => {
             <Form.Control
               type="tel"
               placeholder="Ingresa tu celular"
-              onChange={(e) => setField("cellphoneNumber", "+057"+e.target.value)}
+              onChange={(e) => setField("cellphoneNumber", "+57"+e.target.value)}
               isInvalid={!!errors.cellphoneNumber}
             />
             <Form.Control.Feedback type='invalid'>{ errors.lastname }</Form.Control.Feedback>

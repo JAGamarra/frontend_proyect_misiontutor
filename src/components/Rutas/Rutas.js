@@ -7,6 +7,8 @@ import Login from "../login/Login";
 import Navegador from "../Navegador";
 import PerfilEstudiante from "../perfilEstudiante/PerfilEstudiante";
 import FormRegistro from "../registro/FormRegistro";
+import Catalogo from "../catalogo/Catalogo"
+
 function Rutas() {
 
     const { auth } = useContext(AuthContext);
@@ -16,7 +18,13 @@ function Rutas() {
             <Navegador auth={auth} />
             <Routes>
                 {auth ?
-                    <Route exact path="/perfilEstudiante" element={<PerfilEstudiante />} />
+                (
+                    <>
+                        <Route exact path="/catalogo" element={<Catalogo />} />
+                        <Route exact path="/perfilEstudiante" element={<PerfilEstudiante />} />
+                    </>
+                )
+                     
                     : (
                         <>
                             <Route exact path="/login" element={<Login />} />

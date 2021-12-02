@@ -16,8 +16,14 @@ function Navegador({ auth }) {
                 <Navbar.Toggle />
                 <Navbar.Collapse className="justify-content-end">
                     <Nav.Link as={Link} to="/">Inicio</Nav.Link>
-                    {auth ?
+                    {auth ? (
+                         <>
+                        <Nav.Link as={Link} to="/catalogo">Catálogo</Nav.Link> 
                         <Nav.Link as={Link} to="/perfilEstudiante">Perfil Estudiante</Nav.Link>
+                        </>
+                    )
+                    
+                        
                         : (
                             <>
                                 <Nav.Link as={Link} to="/login">Login</Nav.Link>
