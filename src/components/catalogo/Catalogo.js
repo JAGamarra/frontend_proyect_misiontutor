@@ -8,27 +8,25 @@ import AuthContext from '../../context/AuthContext';
 // COMPONENTE CATALOGO DE PROFESORES
 const Catalogo = () => {
 
- const {handleUser} = useContext(AuthContext);
+  const { handleUserRol } = useContext(AuthContext);
+  const [users, setUsers] = useState([]);
+  useEffect(() => {
+    getProfesores();
+  }, []);
 
-  const [users, setUsers] = useState([
-    { rol:"profesor", name: "luis", asignatura: "mate", ciudad: "cartago",id: 1 },
-    { rol:"estudiante",name: "sara", asignatura: "arte", ciudad: "Cali", id: 2 },
-    { rol:"profesor",name: "luis", asignatura: "mate", ciudad: "Bogotá", id: 3 },
-    { rol:"profesor",name: "Sofía", asignatura: "inglés", ciudad: "Bogotá", id: 4 },
-    { rol:"profesor",name: "Diana", asignatura: "mate", ciudad: "Bogotá", id: 6 },
-    { rol:"estudiante",name: "Diana", asignatura: "mate", ciudad: "Bogotá", id: 7 },
-    { rol:"profesor",name: "Diana", asignatura: "mate", ciudad: "Bogotá", id: 8 },
-    { rol:"profesor",name: "Diana", asignatura: "mate", ciudad: "Bogotá", id: 9 },
-    { rol:"estudiante", name: "Diana", asignatura: "mate", ciudad: "Bogotá", id: 10 },
-  ]);
-
-  
+  const getProfesores = async () => {
+    const resp = await handleUserRol({ rol: "profesor" });
+    if (resp.status === 200) {
+      let json = await resp.json();
+      setUsers(json)
+    }
+  }
 
   return (
     <div className="catalogo">
 
-        <TarjetasProfesores users={users} />
-      
+      <TarjetasProfesores users={users} />
+
     </div>
   );
 };

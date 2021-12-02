@@ -1,7 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { apiUser } from "./Api";
-import { apiLogin, apiRegister } from "./Api";
+import { apiLogin, apiRegister, apiUserRol } from "./Api";
 
 
 const AuthContext = createContext();
@@ -71,13 +71,26 @@ const AuthProvider = ({ children }) => {
         return resp;
     }
 
+    const handleUserRol = async (objRol) => {
+        const token = localStorage.getItem('token');
+        const resp = await fetch(apiUserRol, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}`
+            },
+            body: JSON.stringify(objRol)
+        });
+        return resp;
+    }
+
     const cerrarSesion = () => {
         localStorage.removeItem("token");
         setAuth(false);
         navigate('/');
     }
 
-    const data = { handleRegister, handleLogin, handleUser, auth, cerrarSesion };
+    const data = { handleRegister, handleLogin, handleUser, auth, cerrarSesion, handleUserRol };
     return <AuthContext.Provider value={data}>{children}</AuthContext.Provider>
 
 }
