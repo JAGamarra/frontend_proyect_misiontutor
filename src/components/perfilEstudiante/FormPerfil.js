@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 // PARA REDIRECCIONAR UNA VEZ SE REGISTRE 
 import { useNavigate } from "react-router-dom";
 // PAQUETE PARA ALERTAS
@@ -14,10 +14,24 @@ import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Image from "react-bootstrap/Image";
 import FloatingLabel from "react-bootstrap/FloatingLabel"
+import AuthContext from '../../context/AuthContext';
 
 // COMPONENTE FORMULARIO REGISTRO
-const FormPerfil = () => {
-  const [form, setForm] = useState({});
+const FormPerfil = (props) => {
+  const [form, setForm] = useState(props.datos);
+
+  useEffect(()=>{
+    if(!props.datos){
+      props.getUser();
+    }else{
+      setForm(props.datos)
+    }
+    
+  },[props.datos]);
+
+  const {handleUser} = useContext(AuthContext);
+
+  
   const [errors, setErrors] = useState({});
   const navigate = useNavigate(); 
 
@@ -92,7 +106,8 @@ const FormPerfil = () => {
             <Form.Label>Nombre</Form.Label>
             <Form.Control
               type="text"
-              placeholder="traer de base de datos"
+              placeholder={form ? form.firstName : "" }
+              defaultValue = {form ? form.firstName : ""}
               onChange={(e) => setField("name", e.target.value)}
               isInvalid={!!errors.name}
             />
@@ -103,7 +118,8 @@ const FormPerfil = () => {
             <Form.Label>Apellido</Form.Label>
             <Form.Control
               type="apellido"
-              placeholder="traer de base de datos"
+              placeholder={form ? form.lastname : ""}
+              defaultValue = {form ? form.lastname : ""}
               onChange={(e) => setField("lastname", e.target.value)}
               isInvalid={!!errors.lastname}
             />
@@ -119,7 +135,8 @@ const FormPerfil = () => {
                /* onChange={(e) => setField("email", e.target.value)} */
                isInvalid={!!errors.email}
                disabled
-               defaultValue = 'correobasedatos@gmail.com'
+               placeholder={form ? form.email:""}
+               defaultValue = {form ? form.email:""}
                />
                <Form.Control.Feedback type='invalid'>{ errors.email }</Form.Control.Feedback>       
             </Form.Group>
@@ -131,8 +148,9 @@ const FormPerfil = () => {
                 as="select"
                 onChange={(e) => setField("rol", e.target.value)}
                 isInvalid={!!errors.rol}
+                defaultValue = {form ? form.rol: ""}
               >
-                <option value="">Selecciona tu rol:</option>
+                <option value="">{form ? form.rol: ""}</option>
                 <option value="profesor">Profesor</option>
                 <option value="estudiante">Estudiante</option>
               </Form.Control>
@@ -150,8 +168,9 @@ const FormPerfil = () => {
                 as="select"
                 onChange={(e) => setField("departamento", e.target.value)}
                 isInvalid={!!errors.departamento}
+                defaultValue = {form ? form.departamento:""}
               >
-               <option>Escoge tu departamento</option>
+               <option>{form ? form.departamento:""}</option>
                { Colombia.map(departamento => <option key={departamento.id}> {departamento.departamento}</option> ) }
               </Form.Control>
               <Form.Control.Feedback type="invalid">
@@ -165,9 +184,10 @@ const FormPerfil = () => {
                 as="select"
                 onChange={(e) => setField("city", e.target.value)}
                 isInvalid={!!errors.city}
+               defaultValue = {form ? form.city:""}
               >
-               <option>Escoge tu ciudad</option>
-               {  form.departamento && Colombia.find( departamento => departamento.departamento === form.departamento ).ciudades.map((ciudad,index) => <option key={index}>{ciudad}</option>)}
+               <option>{form ? form.city: ""}</option>
+               {  form?.departamento && Colombia.find( departamento => departamento.departamento === form.departamento ).ciudades.map((ciudad,index) => <option key={index}>{ciudad}</option>)}
               </Form.Control>
               <Form.Control.Feedback type="invalid">
                 {errors.city}
@@ -178,7 +198,8 @@ const FormPerfil = () => {
             <Form.Label>Edad</Form.Label>
             <Form.Control type="number" 
               type='number' 
-              placeholder="traer de base de datos"
+              placeholder={form ? form.age:""}
+              defaultValue = {form ? form.age:""}
               onChange={ e => setField('age', e.target.value) }
               isInvalid={ !!errors.age }
             />

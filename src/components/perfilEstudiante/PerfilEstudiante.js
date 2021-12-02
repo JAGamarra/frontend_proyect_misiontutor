@@ -1,15 +1,15 @@
 //Componentes de Bootstrap
 import { Container, Row, Col, Button ,Badge,Image ,Tabs,Tab} from "react-bootstrap";
-
-import { useNavigate } from 'react-router';
 import EdicionPerfil from "../perfilEstudiante/EdicionPerfil";
+import { useNavigate } from "react-router";
+import AuthContext from '../../context/AuthContext';
+
+/* import React, { useState, useContext, useEffect } from 'react'; */
 
 const PerfilEstudiante = () => {
-
+   
   const navigate = useNavigate();
-  const handlePreguntaRapida = ()=> {
-    navigate('/preguntasExpress');
-  }
+
   return (
     <Container >
 
@@ -24,15 +24,8 @@ const PerfilEstudiante = () => {
       <Row className="d-flex justify-content-center ">
         <Col xs={10} md={8} >
           <div className="d-grid  mt-5 mb-2">
-            <Button variant="primary" size="lg">
+            <Button variant="primary" size="lg" onClick={()=>{navigate('/catalogo');}}>
               Buscar profesor
-            </Button>
-          </div>
-        </Col>
-        <Col xs={10} md={8} >
-          <div className="d-grid  mt-2 mb-3">
-            <Button onClick={handlePreguntaRapida} variant="primary" size="lg">
-              Hacer una pregunta de respuesta inmediata...
             </Button>
           </div>
         </Col>
@@ -41,7 +34,7 @@ const PerfilEstudiante = () => {
       {/* edición del perfil */}
       <Row className="d-flex justify-content-center ">
         <Col xs={10} md={10}>
-            <EdicionPerfil />
+            <EdicionPerfil/>
         </Col>
       </Row>
     

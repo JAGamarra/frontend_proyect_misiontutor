@@ -1,11 +1,17 @@
 import Rutas from "../components/Rutas/Rutas";
+import { BrowserRouter as Router } from "react-router-dom";
+import { AuthProvider } from "../context/AuthContext";
 import logo from "../logo.svg";
 import "../styles/App.css";
 
 function App() {
   return (
-    <div className="App"> 
-      <Rutas />
+    <div className="App">
+      <Router>
+        <AuthProvider>
+          <Rutas />
+        </AuthProvider>
+      </Router>
     </div>
   );
 }
