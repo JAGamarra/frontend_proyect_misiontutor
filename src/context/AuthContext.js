@@ -51,12 +51,15 @@ const AuthProvider = ({ children }) => {
         });
         if (resp.status === 200) {
             setAuth(true);
+            let json = await resp.json();
+            let token = json.token;
+            localStorage.setItem('token', token);
             navigate('/perfilEstudiante');
         }
         return resp;
     }
 
-    const handleUser = async()=>{
+    const handleUser = async () => {
         const token = localStorage.getItem('token');
         const resp = await fetch(apiUser, {
             method: 'GET',
@@ -68,7 +71,13 @@ const AuthProvider = ({ children }) => {
         return resp;
     }
 
-    const data = { handleRegister, handleLogin, handleUser, auth };
+    const cerrarSesion = () => {
+        localStorage.removeItem("token");
+        setAuth(false);
+        navigate('/');
+    }
+
+    const data = { handleRegister, handleLogin, handleUser, auth, cerrarSesion };
     return <AuthContext.Provider value={data}>{children}</AuthContext.Provider>
 
 }

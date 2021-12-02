@@ -17,11 +17,21 @@ import FloatingLabel from "react-bootstrap/FloatingLabel"
 import AuthContext from '../../context/AuthContext';
 
 // COMPONENTE FORMULARIO REGISTRO
-const FormPerfil = ({datos}) => {
-  console.log(datos?.age)
+const FormPerfil = (props) => {
+  const [form, setForm] = useState(props.datos);
+
+  useEffect(()=>{
+    if(!props.datos){
+      props.getUser();
+    }else{
+      setForm(props.datos)
+    }
+    
+  },[props.datos]);
+
   const {handleUser} = useContext(AuthContext);
 
-  const [form, setForm] = useState({});
+  
   const [errors, setErrors] = useState({});
   const navigate = useNavigate(); 
 
@@ -96,8 +106,8 @@ const FormPerfil = ({datos}) => {
             <Form.Label>Nombre</Form.Label>
             <Form.Control
               type="text"
-              placeholder={datos?.firstName}
-              defaultValue = {datos?.firstName}
+              placeholder={form ? form.firstName : "" }
+              defaultValue = {form ? form.firstName : ""}
               onChange={(e) => setField("name", e.target.value)}
               isInvalid={!!errors.name}
             />
@@ -108,8 +118,8 @@ const FormPerfil = ({datos}) => {
             <Form.Label>Apellido</Form.Label>
             <Form.Control
               type="apellido"
-              placeholder={datos?.lastname}
-              defaultValue = {datos?.lastname}
+              placeholder={form ? form.lastname : ""}
+              defaultValue = {form ? form.lastname : ""}
               onChange={(e) => setField("lastname", e.target.value)}
               isInvalid={!!errors.lastname}
             />
@@ -125,8 +135,8 @@ const FormPerfil = ({datos}) => {
                /* onChange={(e) => setField("email", e.target.value)} */
                isInvalid={!!errors.email}
                disabled
-               placeholder={datos?.email}
-               defaultValue = {datos?.email}
+               placeholder={form ? form.email:""}
+               defaultValue = {form ? form.email:""}
                />
                <Form.Control.Feedback type='invalid'>{ errors.email }</Form.Control.Feedback>       
             </Form.Group>
@@ -138,9 +148,9 @@ const FormPerfil = ({datos}) => {
                 as="select"
                 onChange={(e) => setField("rol", e.target.value)}
                 isInvalid={!!errors.rol}
-                defaultValue = {datos?.rol}
+                defaultValue = {form ? form.rol: ""}
               >
-                <option value="">{datos?.rol}</option>
+                <option value="">{form ? form.rol: ""}</option>
                 <option value="profesor">Profesor</option>
                 <option value="estudiante">Estudiante</option>
               </Form.Control>
@@ -158,9 +168,9 @@ const FormPerfil = ({datos}) => {
                 as="select"
                 onChange={(e) => setField("departamento", e.target.value)}
                 isInvalid={!!errors.departamento}
-                defaultValue = {datos?.departamento}
+                defaultValue = {form ? form.departamento:""}
               >
-               <option>{datos?.departamento}</option>
+               <option>{form ? form.departamento:""}</option>
                { Colombia.map(departamento => <option key={departamento.id}> {departamento.departamento}</option> ) }
               </Form.Control>
               <Form.Control.Feedback type="invalid">
@@ -174,10 +184,10 @@ const FormPerfil = ({datos}) => {
                 as="select"
                 onChange={(e) => setField("city", e.target.value)}
                 isInvalid={!!errors.city}
-               defaultValue = {datos?.city}
+               defaultValue = {form ? form.city:""}
               >
-               <option>{datos?.city}</option>
-               {  form.departamento && Colombia.find( departamento => departamento.departamento === form.departamento ).ciudades.map((ciudad,index) => <option key={index}>{ciudad}</option>)}
+               <option>{form ? form.city: ""}</option>
+               {  form?.departamento && Colombia.find( departamento => departamento.departamento === form.departamento ).ciudades.map((ciudad,index) => <option key={index}>{ciudad}</option>)}
               </Form.Control>
               <Form.Control.Feedback type="invalid">
                 {errors.city}
@@ -188,8 +198,8 @@ const FormPerfil = ({datos}) => {
             <Form.Label>Edad</Form.Label>
             <Form.Control type="number" 
               type='number' 
-              placeholder={datos?.age}
-              defaultValue = {datos?.age}
+              placeholder={form ? form.age:""}
+              defaultValue = {form ? form.age:""}
               onChange={ e => setField('age', e.target.value) }
               isInvalid={ !!errors.age }
             />

@@ -1,6 +1,11 @@
+import {useContext} from 'react';
 import { Navbar, Container, Nav } from 'react-bootstrap'
 import { Link } from "react-router-dom";
+import AuthContext from '../context/AuthContext';
 function Navegador({ auth }) {
+
+    const {cerrarSesion} = useContext(AuthContext);
+
     return (
         <Navbar expand="sm">
             <Container fluid style={{ marginLeft: "15px", marginRight: "15px" }} >
@@ -20,6 +25,7 @@ function Navegador({ auth }) {
                          <>
                         <Nav.Link as={Link} to="/catalogo">Catálogo</Nav.Link> 
                         <Nav.Link as={Link} to="/perfilEstudiante">Perfil Estudiante</Nav.Link>
+                        <Nav.Link onClick={cerrarSesion} >Cerrar Sesión</Nav.Link>
                         </>
                     )
                     

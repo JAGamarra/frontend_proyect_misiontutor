@@ -48,8 +48,6 @@ const Login = (props) => {
     }
     const resp = await handleLogin(form);
     if (resp.status === 200) {
-      let json = await resp.json();
-      localStorage.setItem("token", json.token);
       setShow(false);
     } else {
       setShow(true);

@@ -9,26 +9,26 @@ import CambiarPassword from "./CambiarPassword"
 import CerraCuenta from "./CerrarCuenta"
 import AuthContext from '../../context/AuthContext';
 
-const  EdicionPerfil = () => {
+const EdicionPerfil = () => {
 
-    const {handleUser} = useContext(AuthContext);
+    const { handleUser } = useContext(AuthContext);
     const [datos, setDatos] = useState();
 
-    useEffect(async ()=>{
+    const getUser = async () => {
         const resp = await handleUser();
-        if(resp.status === 200){
-          //json contiene el arreglo con toda la informacion
-          let json = await resp.json();
-          setDatos(json[0]);
+        if (resp.status === 200) {
+            //json contiene el arreglo con toda la informacion
+            let json = await resp.json();
+            setDatos(json[0]);
         }
-      },[]); 
-     
-    return ( 
+    }
+
+    return (
         <div Container>
             <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example" className="mb-3">
                 <Tab eventKey="home" title="Perfil">
 
-                    <FormPerfil datos={datos}/>
+                    <FormPerfil datos={datos} getUser={getUser} />
 
                 </Tab>
                 <Tab eventKey="profile" title="Cambiar contraseña">
@@ -38,12 +38,12 @@ const  EdicionPerfil = () => {
                 </Tab>
                 <Tab eventKey="contact" title="Cerrar cuenta" >
 
-                   <CerraCuenta />
-                   
+                    <CerraCuenta />
+
                 </Tab>
             </Tabs>
         </div>
-     );
+    );
 }
- 
-export default EdicionPerfil ;
+
+export default EdicionPerfil;
