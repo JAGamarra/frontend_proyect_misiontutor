@@ -1,7 +1,49 @@
-.profileImage {}
+.grid-container {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)) !important;
 
-@media (max-width: 580px) {
-    .profileImage {
-        width: 180px !important;
+}
+
+/* @media (min-width: 581px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
+
+@media (min-width: 768px) {
+    .grid-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 912) {
+    .grid-container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+} */
+
+.teacher-card {
+    width: 100% !important;
+    display: block !important;
+    border: none;
+}
+
+
+@media (max-width: 580px) {
+    .card {
+        width: 100% !important;
+        margin: 0 auto !important;
+        margin-bottom: 15px !important;
+    }
+}
+
+.card__title {
+    font-size: 18px;
+    text-transform: capitalize;
+}
+
+/* @media (max-width: 580px) {
+    .card__image {
+        width: 180px !important;
+    }
+} */

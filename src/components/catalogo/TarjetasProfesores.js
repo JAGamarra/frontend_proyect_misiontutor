@@ -40,20 +40,22 @@ const TarjetasProfesores = ({ users }) => {
           </Form.Control>
         </Form.Group>
       </div>
-      <Row>
+      <Row className="grid-container">
         {users
           .filter((user) => user.assignature === assignature)
           .map((user) => (
-            <Col sm={4} lg={2} className="teacher-card" key={user._id}>
+            <Col sm={4} lg={2} className="teacher-card " key={user._id}>
               <Card
+                className="card"
                 style={{
                   margin: "0 0 8px 0",
                   padding: "10px",
                   borderRadius: "10px",
+                  width: "100%",
                 }}
               >
                 <Image
-                  className="profileImage"
+                  className="card__image"
                   variant="top"
                   src="https://image.flaticon.com/icons/png/512/1089/1089129.png"
                   thumbnail
@@ -61,8 +63,10 @@ const TarjetasProfesores = ({ users }) => {
                   style={{ border: "none", width: "90%", margin: "0 auto" }}
                 />
                 <Card.Body>
-                  <Card.Title>{user.firstName}</Card.Title>
-                  <Card.Text>
+                  <Card.Title className="card__title">
+                    {user.firstName}
+                  </Card.Title>
+                  <div>
                     <h3>Enseño {user.assignature}</h3>
                     <h5> y Vivo en {user.city}</h5>
                     <br />
@@ -76,7 +80,7 @@ const TarjetasProfesores = ({ users }) => {
                       <img src={wspIcon} alt="whatsapp icon" />
                     </a>
                     <p>{user.cellphoneNumber}</p>
-                  </Card.Text>
+                  </div>
                 </Card.Body>
               </Card>
             </Col>

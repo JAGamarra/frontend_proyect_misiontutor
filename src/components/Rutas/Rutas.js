@@ -15,24 +15,27 @@ function Rutas() {
   return (
     <>
       <Navegador auth={auth} />
-      <Routes>
-        {auth ? (
-          <>
-            <Route exact path="/catalogo" element={<Catalogo />} />
-            <Route
-              exact
-              path="/perfilEstudiante"
-              element={<PerfilEstudiante />}
-            />
-          </>
-        ) : (
-          <>
-            <Route exact path="/login" element={<Login />} />
-            <Route exact path="/registro" element={<FormRegistro />} />
-          </>
-        )}
-        <Route exacr path="/" element={<Home />} />
-      </Routes>
+      <div style={{ minHeight: "59vh" }}>
+        <Routes>
+          {auth ? (
+            <>
+              <Route exact path="/catalogo" element={<Catalogo />} />
+              <Route
+                exact
+                path="/perfilEstudiante"
+                element={<PerfilEstudiante />}
+              />
+            </>
+          ) : (
+            <>
+              <Route exact path="/login" element={<Login />} />
+              <Route exact path="/registro" element={<FormRegistro />} />
+            </>
+          )}
+          <Route exacr path="/" element={<Home />} />
+        </Routes>
+      </div>
+
       <Footer />
     </>
   );
