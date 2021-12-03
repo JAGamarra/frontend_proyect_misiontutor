@@ -13,7 +13,7 @@ import Container from "react-bootstrap/Container";
 
 
 // COMPONENTE FORMULARIO REGISTRO
-const CambiarPassword = () => {
+const CambiarPassword = (props) => {
   const [form, setForm] = useState({});
   const [errors, setErrors] = useState({});
   const navigate = useNavigate(); 
@@ -46,8 +46,9 @@ const CambiarPassword = () => {
       });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
+    props.getUser();
     // tomar un nuevo error
     const newErrors = findFormErrors();
     // si el objeto de errores tiene longitud mayor a cero pues sí hay errores
@@ -56,9 +57,16 @@ const CambiarPassword = () => {
       setErrors(newErrors);
     } else {
       // Si no hay errores se puede enviar a MongoDB 
-
+      const resp = await props.updatePass(form);
+      if (resp.status === 200) {
+        let json = await resp.json();
+        let token = json.token;
+        console.log(json.info)
+        showAlert();
+      }else{
+        console.log("ha ocurrido un error");
+      }
        // notificación de cambio de contraseña exitoso
-      showAlert();
     }
   };
 
@@ -70,7 +78,7 @@ const CambiarPassword = () => {
     //password
     if(!password || password==='') newErrors.password = "Ingresa tu contraseña"
     if ( password !== repeatPassword) newErrors.repeatPassword = "no coinciden contraseñas" 
- 
+    if(passwordDB !== props.datos.password) newErrors.passwordDB = "constraseña incorrecta"
     return newErrors; 
   };
 
@@ -84,7 +92,7 @@ const CambiarPassword = () => {
                     <Form.Label >Contraseña actual</Form.Label>     
                     <Form.Control type="password" placeholder="Ingresa tu contraseña" 
                             onChange={(e) => setField("passwordDB", e.target.value)}
-                            isInvalid={!!errors.password}
+                            isInvalid={!!errors.passwordDB}
                         />
                     <Form.Control.Feedback type='invalid'>{ errors.passwordDB}</Form.Control.Feedback>
                 </Form.Group>

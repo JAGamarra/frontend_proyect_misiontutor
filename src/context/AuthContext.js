@@ -1,7 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { apiUser } from "./Api";
-import { apiLogin, apiRegister, apiUserRol } from "./Api";
+import { apiLogin, apiRegister, apiUserRol, apiUserUpdate, apiUserPassword } from "./Api";
 
 
 const AuthContext = createContext();
@@ -84,13 +84,48 @@ const AuthProvider = ({ children }) => {
         return resp;
     }
 
+    const handleUserUpdate = async (objUser) => {
+        const token = localStorage.getItem('token');
+        const resp = await fetch(apiUserUpdate, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}`
+            },
+            body: JSON.stringify(objUser)
+        });
+        return resp;
+    }
+
+    const handleUserUpdatePass = async (objUser) => {
+        const token = localStorage.getItem('token');
+        const resp = await fetch(apiUserPassword, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}`
+            },
+            body: JSON.stringify(objUser)
+        });
+        return resp;
+    }
+
     const cerrarSesion = () => {
         localStorage.removeItem("token");
         setAuth(false);
         navigate('/');
     }
 
-    const data = { handleRegister, handleLogin, handleUser, auth, cerrarSesion, handleUserRol };
+    const data = {
+        handleRegister,
+        handleLogin,
+        handleUser,
+        auth,
+        cerrarSesion,
+        handleUserRol,
+        handleUserUpdate,
+        handleUserUpdatePass
+    };
     return <AuthContext.Provider value={data}>{children}</AuthContext.Provider>
 
 }
