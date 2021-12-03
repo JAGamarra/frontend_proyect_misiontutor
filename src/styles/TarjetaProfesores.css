@@ -29,17 +29,47 @@
 }
 
 
-@media (max-width: 580px) {
+@media (max-width: 414px) {
     .card {
-        width: 100% !important;
+        width: 70% !important;
         margin: 0 auto !important;
         margin-bottom: 15px !important;
     }
 }
 
 .card__title {
-    font-size: 18px;
+    margin-top: 10px;
+    font-size: 19px;
     text-transform: capitalize;
+}
+
+.subtitle {
+    font-size: 15px;
+}
+
+.subtitle:last-of-type {
+    text-decoration: underline;
+
+}
+
+.email {
+    font-style: italic;
+    margin: 0;
+}
+
+.email:first-of-type {
+    margin-top: 10px;
+    font-style: normal;
+}
+
+.whats {
+    margin: 0;
+    margin-top: 10px;
+}
+
+.callme {
+    margin: 0;
+    margin-top: 10px;
 }
 
 /* @media (max-width: 580px) {

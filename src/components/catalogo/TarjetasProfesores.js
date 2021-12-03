@@ -67,18 +67,20 @@ const TarjetasProfesores = ({ users }) => {
                     {user.firstName}
                   </Card.Title>
                   <div>
-                    <h3>Enseño {user.assignature}</h3>
-                    <h5> y Vivo en {user.city}</h5>
+                    <h4 className="subtitle">Enseño {user.assignature}</h4>
+                    <h4 className="subtitle"> y Vivo en {user.city}</h4>
                     <br />
-                    <h6>Contáctame</h6>
-                    <p>Por correo:</p>
-                    <p>{user.email}</p>
+                    <h4 className="subtitle">Contáctame</h4>
+                    <p className="email">Por correo:</p>
+                    <p className="email">{user.email}</p>
+                    <p className="whats">Por WhatsApp:</p>
                     <a
                       href={`https://wa.me/${user.cellphoneNumber}`}
                       target="__blank"
                     >
                       <img src={wspIcon} alt="whatsapp icon" />
                     </a>
+                    <p className="callme">O llámame:</p>
                     <p>{user.cellphoneNumber}</p>
                   </div>
                 </Card.Body>
