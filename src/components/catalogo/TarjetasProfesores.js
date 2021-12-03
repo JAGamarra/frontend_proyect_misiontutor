@@ -33,9 +33,9 @@ const TarjetasProfesores = ({ users }) => {
             onChange={(e) => setField("assignature", e.target.value)}
             style={{ fontSize: "16px" }}
           >
-            <option value="fisica">Física</option>
-            <option value="matematicas"> Matematicas</option>
-            <option value="ingles">Inglés</option>
+            <option value="física">Física</option>
+            <option value="matemáticas"> Matemáticas</option>
+            <option value="inglés">Inglés</option>
             <option value="arte">Arte</option>
           </Form.Control>
         </Form.Group>

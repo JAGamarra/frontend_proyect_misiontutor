@@ -24,7 +24,7 @@ function Navegador({ auth }) {
                     {auth ? (
                          <>
                         <Nav.Link as={Link} to="/catalogo">Catálogo</Nav.Link> 
-                        <Nav.Link as={Link} to="/perfilEstudiante">Perfil Estudiante</Nav.Link>
+                        <Nav.Link as={Link} to="/perfilEstudiante">Perfil</Nav.Link>
                         <Nav.Link onClick={cerrarSesion} >Cerrar Sesión</Nav.Link>
                         </>
                     )

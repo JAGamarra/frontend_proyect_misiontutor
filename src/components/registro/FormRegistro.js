@@ -78,7 +78,7 @@ const FormRegistro = () => {
   }
 
   const findFormErrors = () => {
-    const { firstName, lastname, email, rol, password, age, departamento, city, assignature } = form;
+    const { firstName, lastname, email, rol, password, age, departamento, city, assignature,cellphoneNumber } = form;
     const newErrors = {};
     // name errors
     if (!firstName || firstName === "") newErrors.firstName = "campo necesario!"; // !name es para evitar problemas con undefined 
@@ -101,7 +101,9 @@ const FormRegistro = () => {
     // departamento
     if (!departamento || departamento === "") newErrors.departamento = "Elige tu departamento!";
     if (!city || city === "") newErrors.city = "Elige tu ciudad!";
-
+    // error celular
+    if (!cellphoneNumber || cellphoneNumber.length != 13 || cellphoneNumber[3] !='3') newErrors.cellphoneNumber = "Escribe un número valido!";
+    //|| cellphoneNumber.split()[3] !='3'
     return newErrors;
   };
 
@@ -144,7 +146,7 @@ const FormRegistro = () => {
               onChange={(e) => setField("cellphoneNumber", "+57" + e.target.value)}
               isInvalid={!!errors.cellphoneNumber}
             />
-            <Form.Control.Feedback type='invalid'>{errors.lastname}</Form.Control.Feedback>
+            <Form.Control.Feedback type='invalid'>{errors.cellphoneNumber}</Form.Control.Feedback>
           </Form.Group>
 
         </Row>
@@ -200,9 +202,9 @@ const FormRegistro = () => {
                 isInvalid={!!errors.assignature}
               >
                 <option value="">Selecciona tu curso:</option>
-                <option value="matematicas"> Matematicas</option>
-                <option value="fisica">Física</option>
-                <option value="ingles">Inglés</option>
+                <option value="matemáticas"> Matemáticas</option>
+                <option value="física">Física</option>
+                <option value="inglés">Inglés</option>
                 <option value="arte">Arte</option>
               </Form.Control>
               <Form.Control.Feedback type="invalid">
