@@ -18,7 +18,7 @@ import AuthContext from '../../context/AuthContext';
 
 // COMPONENTE FORMULARIO REGISTRO
 const FormRegistro = () => {
-
+  
   const { handleRegister } = useContext(AuthContext);
 
   const [form, setForm] = useState({});
@@ -102,9 +102,10 @@ const FormRegistro = () => {
     if (!departamento || departamento === "") newErrors.departamento = "Elige tu departamento!";
     if (!city || city === "") newErrors.city = "Elige tu ciudad!";
     // error celular
-    if (!cellphoneNumber || cellphoneNumber.length != 13 || cellphoneNumber[3] !='3') newErrors.cellphoneNumber = "Escribe un número valido!";
-    //|| cellphoneNumber.split()[3] !='3'
+    if (!cellphoneNumber || cellphoneNumber.length != 13 || cellphoneNumber[3] !='3' || isNaN(cellphoneNumber.substring(1)) ) newErrors.cellphoneNumber = "Escribe un número valido!";
     return newErrors;
+
+
   };
 
   return (
